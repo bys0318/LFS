@@ -583,8 +583,12 @@ int lfs_readdir(const char*path,void*buf,fuse_fill_dir_t filler,off_t offset,str
 		{
 			yrx_readdirfrominode(lfs,tid,&node,&dir);
 			for(f1=0;f1<MAX_FILE_NUM;f1++)
+			{
+				if(dir.id[f1]!=-1)
+					log_msg("[name]%s\n",dir.filenames[f1]);
 				if((dir.id[f1]!=-1)&&filler(buf,dir.filenames[f1],NULL,0,0))
 					break;
+			}
 		}
 		else
 			ret=2;
@@ -643,6 +647,10 @@ int lfs_rmdir(const char*path)
 			return -EACCES;
 	}
 }
+int lfs_utimens(const char*path,const struct timespec ts[2],struct fuse_file_info*fi)
+{
+	return 0;
+}
 struct fuse_operations lfs_op=
 {
 	.init=lfs_init,
@@ -665,7 +673,10 @@ struct fuse_operations lfs_op=
 	.mkdir=lfs_mkdir,
 	.readdir=lfs_readdir,
 	.releasedir=lfs_releasedir,
-	.rmdir=lfs_rmdir
+	.rmdir=lfs_rmdir,
+//#ifdef HAVE_UTIMENSAT
+	.utimens=lfs_utimens
+//#endif
 };
 int main(int argc,char**argv)
 {
