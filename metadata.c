@@ -18,7 +18,7 @@ int yrx_init_lfs(struct LFS** lfs) {
     (*lfs)->nextblock = 1;
     (*lfs)->transaction = 0;
     (*lfs)->buffersize = 0;
-    strcpy((*lfs)->filename, "LFS");
+    strcpy((*lfs)->filename, "/fanzewen/LFS");
     //memset((*lfs)->superblock.inodemap, -1, INODE_MAP_SIZE * sizeof(int));
     for (int i = 0; i < INODE_MAP_SIZE; ++i) (*lfs)->superblock.inodemap[i] = -1;
     struct INode root;
@@ -381,7 +381,7 @@ int yrx_deletedir(struct LFS* lfs, int tid, struct INode* fnode, const char* fil
                     fdir.id[i] = -1;
                     fnode->child_num --;
                     fnode->addr[0] = lfs->nextblock + lfs->buffersize;
-                    yrx_writedir(lfs, tid, fdir);
+                    yrx_writedir(lfs, tid,&fdir);
                     yrx_writeinode(lfs, tid, fnode);
                     return 1;
                 }
