@@ -146,7 +146,7 @@ int yrx_readinodefrompath(struct LFS* lfs, int tid, const char* path, struct INo
         int end = strlen(path);
         while (found == 0 && index < end) {
             index ++;
-            if (yrx_check_access(node, uid) == 1) { // has the permission
+            if (yrx_check_access(node, uid)) { // has the permission
                 // from the directory to find the next one
                 char nextname[MAX_FILENAME];
                 int tmp = 0;
