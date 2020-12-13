@@ -40,8 +40,6 @@ struct Directory {
 
 struct SuperBlock {
     int inodemap[INODE_MAP_SIZE];
-    int free_block_num;
-    int free_inode_num;
 };
 
 struct LFS {
