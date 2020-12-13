@@ -114,21 +114,21 @@ int main(int argc, char *argv[]){
     
     // test modifying file (more than one block)
     printf("5. test modifying file\n");
-    char bufwrite[1000];
-    for (int i = 0; i < 800; i++)
+    char bufwrite[100000];
+    for (int i = 0; i < 80000; i++)
         bufwrite[i] = 'b';
-    bufwrite[800] = '\0';
+    bufwrite[80000] = '\0';
     fd = open("mount/a/a.txt", O_RDWR);
     assert(fd > 0);
     int r_write = write(fd, bufwrite, strlen(bufwrite));
     printf("Number of bytes written to file : %d\n", r_write);
     close(fd);
-    char *bufread = (char*)malloc(1000);
+    char *bufread = (char*)malloc(100000);
     fd = open("mount/a/a.txt", O_RDWR);
     if (fd < 0)
         fprintf(stderr, "%d\n", errno);
     assert(fd > 0);
-    int r_read = pread(fd, bufread, 1000, 0);
+    int r_read = pread(fd, bufread, 100000, 0);
     printf("Number of bytes read from file : %d\n", r_read);
     close(fd);
     if (strcmp(bufwrite, bufread)==0)
