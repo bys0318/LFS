@@ -9,11 +9,18 @@
 #include "metadata.h"
 #include <time.h>
 #include<fcntl.h>
+#include <sys/select.h>
 
 struct LFS* lfs;
 
 static int min(int a, int b) {return a < b ? a : b;}
-
+static void sleep_ms(unsigned int secs)
+{
+    struct timeval tval;
+    tval.tv_sec=secs/1000;
+    tval.tv_usec=(secs*1000)%1000000;
+    select(0,NULL,NULL,NULL,&tval);
+}
 int yrx_init_lfs(struct LFS** lfs) {
     *lfs = malloc(sizeof(struct LFS));
     (*lfs)->nextblock = 1;
@@ -174,9 +181,7 @@ int yrx_readinodefrompath(struct LFS* lfs, int tid, const char* path, struct INo
     return found;
 }
 
-int yrx_readfilefrominode(struct LFS* lfs, int tid, char* file, struct INode* node, size_t size, off_t offset) { 
-    yrx_simpleread(lfs, tid, file, node, size, offset);
-    return 0;
+int yrx_readfilefrominode(struct LFS* lfs, int tid, char* file, struct INode* node, size_t size, off_t offset) { //TODO: double check
     int index = 0;
     int start_block_num = offset / BLOCK_SIZE;
     int end_block_num = (offset + size) / BLOCK_SIZE + 1;
@@ -408,37 +413,11 @@ int yrx_deletedir(struct LFS* lfs, int tid, struct INode* fnode, const char* fil
     return 0;
 }
 
-
-int yrx_simpleread(struct LFS* lfs, int tid, char* file, struct INode* node, size_t size, off_t offset){
-    char* buffer = malloc(POINTER_PER_INODE * BLOCK_SIZE);
-    for (int i = 0; i < POINTER_PER_INODE; ++i) {
-        if (node->addr[i] == -1) break;
-        yrx_readblock(lfs, tid, node->addr[i], buffer + i * BLOCK_SIZE, BLOCK_SIZE, 1);
-    }
-    memcpy(file, buffer + offset, size);
-    return 0;
-}
-int yrx_simplewrite(struct LFS* lfs, int tid, const char* file, struct INode* node, size_t size, off_t offset){
-    char* buffer = malloc(POINTER_PER_INODE * BLOCK_SIZE);
-    for (int i = 0; i < POINTER_PER_INODE; ++i) {
-        if (node->addr[i] == -1) break;
-        yrx_readblock(lfs, tid, node->addr[i], buffer + i * BLOCK_SIZE, BLOCK_SIZE, 1);
-    }
-    memcpy(buffer + offset, file, size);
-    int start = offset / BLOCK_SIZE, end = (offset + size) / BLOCK_SIZE;
-    for (int i = start; i <= end; ++i) {
-        node->addr[i] = lfs->nextblock + lfs->buffersize;
-        yrx_writeblocktobuffer(lfs, buffer + i * BLOCK_SIZE, BLOCK_SIZE);
-    }
-    yrx_writeinode(lfs, tid, node);
-}
 // write file:
 // clear buffer
 // write to block directly
 // update the inode
 int yrx_writefile(struct LFS* lfs, int tid, const char* file, struct INode* node, size_t size, off_t offset) { 
-    yrx_simplewrite(lfs, tid, file, node, size, offset);
-    return 0;
     yrx_writebuffertodisk(lfs);
     // update the inode
     // [start, end]
@@ -574,21 +553,13 @@ int yrx_writefile(struct LFS* lfs, int tid, const char* file, struct INode* node
     return 0;
 }
 
-static void sleep_ms(unsigned int secs)
-{
-    struct timeval tval;
-    tval.tv_sec=secs/1000;
-    tval.tv_usec=(secs*1000)%1000000;
-    select(0,NULL,NULL,NULL,&tval);
-}
-
-int yrx_begintransaction(struct LFS* lfs) {
-    while (lfs->transaction == 1) sleep_ms(100);
-    if (lfs->transaction == 0) {
-        lfs->transaction = 1;
-        return 1;
-    }
-    else return 0;
+int yrx_begintransaction(struct LFS* lfs) {
+    while (lfs->transaction == 1) sleep_ms(100);
+    if (lfs->transaction == 0) {
+        lfs->transaction = 1;
+        return 1;
+    }
+    else return 0;
 }
 
 int yrx_endtransaction(struct LFS* lfs, int tid) {
@@ -623,6 +594,29 @@ int SuperBlocktoString(FILE *file, struct SuperBlock* superblock){
     fprintf(file, "}\n\n");
     return 0;
 }
+int yrx_simpleread(struct LFS* lfs, int tid, char* file, struct INode* node, size_t size, off_t offset){
+    char* buffer = malloc(POINTER_PER_INODE * BLOCK_SIZE);
+    for (int i = 0; i < POINTER_PER_INODE; ++i) {
+        if (node->addr[i] == -1) break;
+        yrx_readblock(lfs, tid, node->addr[i], buffer + i * BLOCK_SIZE, BLOCK_SIZE, 1);
+    }
+    memcpy(file, buffer + offset, size);
+    return 0;
+}
+int yrx_simplewrite(struct LFS* lfs, int tid, const char* file, struct INode* node, size_t size, off_t offset){
+    char* buffer = malloc(POINTER_PER_INODE * BLOCK_SIZE);
+    for (int i = 0; i < POINTER_PER_INODE; ++i) {
+        if (node->addr[i] == -1) break;
+        yrx_readblock(lfs, tid, node->addr[i], buffer + i * BLOCK_SIZE, BLOCK_SIZE, 1);
+    }
+    memcpy(buffer + offset, file, size);
+    int start = offset / BLOCK_SIZE, end = (offset + size) / BLOCK_SIZE;
+    for (int i = start; i <= end; ++i) {
+        node->addr[i] = lfs->nextblock + lfs->buffersize;
+        yrx_writeblocktobuffer(lfs, buffer + i * BLOCK_SIZE, BLOCK_SIZE);
+    }
+    yrx_writeinode(lfs, tid, node);
+}
 
 int block_dump(struct LFS* lfs){
     FILE *file = fopen("block.txt", "a");
@@ -637,4 +631,3 @@ int block_dump(struct LFS* lfs){
     }
     return 0;
 }
-
