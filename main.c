@@ -2,9 +2,13 @@
 #define PATH_MAX (1024)
 #define LFS_DATA ((struct lfs_state *) fuse_get_context()->private_data)
 #include"metadata.h"
-#include<fuse.h>
-#include<stdlib.h>
-#include<errno.h>
+#include <fuse.h>
+#include <stdio.h>
+#include <string.h>
+#include <errno.h>
+#include <stdarg.h>
+#include <fcntl.h>
+#include <stdlib.h>
 struct lfs_state
 {
 	FILE*logfile;
@@ -17,6 +21,7 @@ FILE*open_log()
 	setvbuf(log,NULL,_IOLBF,0);
 	return log;
 }
+// Write message to the logfile
 void log_msg(const char*const format,...)
 {
 	va_list ap;
@@ -24,14 +29,22 @@ void log_msg(const char*const format,...)
 	vfprintf(LFS_DATA->logfile,format,ap);
 	return;
 }
+// Get the full path (full_path = root + path)
+static void get_full_path(char full_path[PATH_MAX], const char *path){
+  strcpy(full_path, LFS_DATA->rootdir);
+  strncat(full_path, path, PATH_MAX);
+}
 void*lfs_init(struct fuse_conn_info*conn,struct fuse_config*cfg)
 {
-	log_msg("[init]\n");
+	log_msg("INIT, <0x%08x>\n", conn);
 	return LFS_DATA;
 }
 //OK!!!
 int lfs_getattr(const char*path,struct stat*stbuf,struct fuse_file_info*fi)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("GETATTR, <%s>, <0x%08x>, <0x%08x>\n", full_path, stbuf, fi);
 	int tid;
 	int ret;
 	struct INode node;
@@ -68,6 +81,9 @@ static int chmod_check(const struct INode*const node,const uid_t uid,const mode_
 //OK!!!
 int lfs_chmod(const char*path,mode_t mode,struct fuse_file_info*fi)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("CHMOD, <%s>, <%d>, <0x%08x>\n", full_path, mode, fi);
 	int tid;
 	int ret;
 	struct INode node;
@@ -115,6 +131,9 @@ static int chown_check(const struct INode*const node,const uid_t uid,const uid_t
 //OK!!!
 int lfs_chown(const char*path,uid_t uid,gid_t gid,struct fuse_file_info*fi)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("CHOWN, <%s>, <%d>, <%d>, <0x%08x>\n", full_path, uid, gid, fi);
 	int tid;
 	int ret;
 	struct INode node;
@@ -175,6 +194,9 @@ static int create_check(const struct INode*const node,const uid_t uid)
 //尚未处理：文件已存在
 int lfs_create(const char*path,mode_t mode,struct fuse_file_info*fi)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("CREATE, <%s>, <%d>, <0x%08x>\n", full_path, mode, fi);
 	int tid;
 	int ret;
 	struct INode node;
@@ -210,6 +232,11 @@ int lfs_create(const char*path,mode_t mode,struct fuse_file_info*fi)
 //尚未处理：文件已存在
 int lfs_rename(const char*from,const char*to,unsigned int flags)
 {
+	char full_path_from[PATH_MAX];
+	get_full_path(full_path_from, from);
+	char full_path_to[PATH_MAX];
+	get_full_path(full_path_to, to);
+	log_msg("RENAME, <%s>, <%s>, <%d>\n", full_path_from, full_path_to, flags);
 	int tid;
 	int ret;
 	struct INode fnode1;
@@ -298,6 +325,9 @@ static int open_check(const struct INode*const node,const uid_t uid,const int fl
 //OK!!!
 int lfs_open(const char*path,struct fuse_file_info*fi)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("OPEN, <%s>, <0x%08x>\n", full_path, fi);
 	int tid;
 	int ret;
 	struct INode node;
@@ -328,6 +358,9 @@ static size_t min(const size_t a,const size_t b)
 //OK!!!
 int lfs_read(const char*path,char*buf,size_t size,off_t offset,struct fuse_file_info*fi)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("READ, <%s>, <0x%08x>, <%d>, <%lld>, <0x%08x>\n", full_path, buf, size, offset, fi);
 	int tid;
 	int ret;
 	struct INode node;
@@ -346,6 +379,9 @@ int lfs_read(const char*path,char*buf,size_t size,off_t offset,struct fuse_file_
 //OK!!!
 int lfs_write(const char*path,const char*buf,size_t size,off_t offset,struct fuse_file_info*fi)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("WRITE, <%s>, <0x%08x>, <%d>, <%lld>, <0x%08x>\n", full_path, buf, size, offset, fi);
 	int tid;
 	struct INode node;
 	tid=yrx_begintransaction(lfs);
@@ -367,6 +403,11 @@ static int link_check(const struct INode*const node,const uid_t uid)
 //OK!!!
 int lfs_link(const char*from,const char*to)
 {
+	char full_path_from[PATH_MAX];
+	get_full_path(full_path_from, from);
+	char full_path_to[PATH_MAX];
+	get_full_path(full_path_to, to);
+	log_msg("LINK, <%s>, <%s>\n", full_path_from, full_path_to);
 	int tid;
 	int ret;
 	struct INode node;
@@ -403,6 +444,9 @@ int lfs_link(const char*from,const char*to)
 //OK!!!
 int lfs_unlink(const char*path)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("UNLINK, <%s>\n", full_path);
 	int tid;
 	int ret;
 	struct INode fnode;
@@ -434,6 +478,9 @@ int lfs_unlink(const char*path)
 //OK!!!
 int lfs_release(const char*path,struct fuse_file_info*fi)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("RELEASE, <%s>, <0x%08x>\n", full_path, fi);
 	return 0;
 }
 //OK!!!
@@ -451,6 +498,9 @@ static int opendir_check(const struct INode*const node,const uid_t uid)
 //OK!!!
 int lfs_opendir(const char*path,struct fuse_file_info*fi)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("OPENDIR, <%s>, <0x%08x>\n", full_path, fi);
 	int tid;
 	int ret;
 	struct INode node;
@@ -474,6 +524,9 @@ int lfs_opendir(const char*path,struct fuse_file_info*fi)
 //OK!!!
 int lfs_mkdir(const char*path,mode_t mode)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("MKDIR, <%s>, <%d>\n", full_path, mode);
 	int tid;
 	int ret;
 	struct INode fnode;
@@ -515,6 +568,9 @@ static int readdir_check(const struct INode*const node,const uid_t uid)
 }
 int lfs_readdir(const char*path,void*buf,fuse_fill_dir_t filler,off_t offset,struct fuse_file_info*fi,enum fuse_readdir_flags flags)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("READDIR, <%s>, <0x%08x>, <0x%08x>, <%lld>, <0x%08x>, \n", full_path, buf, filler, offset, fi);
 	int tid;
 	int ret;
 	int f1;
@@ -548,11 +604,17 @@ int lfs_readdir(const char*path,void*buf,fuse_fill_dir_t filler,off_t offset,str
 //OK!!!
 int lfs_releasedir(const char*path,struct fuse_file_info*fi)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("RELEASEDIR, <%s>, <0x%08x>\n", full_path, fi);
 	return 0;
 }
 //OK!!!
 int lfs_rmdir(const char*path)
 {
+	char full_path[PATH_MAX];
+	get_full_path(full_path, path);
+	log_msg("RMDIR, <%s>\n", full_path);
 	int tid;
 	int ret;
 	struct INode fnode;
