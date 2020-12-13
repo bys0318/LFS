@@ -1,7 +1,7 @@
 // TO DO:
 // 1. adding time --> Done
 // 2. adding mode check
-// 3. adding nlink change
+// 3. adding nlink change 
 // 4. adding file operation --> Done
 // 5. reboot
 // 6. free the malloc --> Done
@@ -149,7 +149,7 @@ int yrx_readinodefrompath(struct LFS* lfs, int tid, const char* path, struct INo
                 while (path[index] != '/' && index < end) index ++; // find the next '/'
                 if (node->isdir == 0) return 0;
                 struct Directory dir;
-                yrx_readdir(lfs, tid, node->addr[0], dir);
+                yrx_readdir(lfs, tid, node->addr[0], &dir);
                 for (int i = 0; i < MAX_FILE_NUM; ++i) {
                     if (strcmp(nextname, dir.filenames[i]) == 0) {
                         found = yrx_readinode(lfs, tid, dir.id[i], node);
@@ -252,10 +252,16 @@ int yrx_linkfile(struct LFS* lfs, int tid, struct INode* fnode, const char* file
     for (int i = 0; i < MAX_FILE_NUM; ++i) {
         if (strcmp(filename, dir->filenames[i]) == 0) {
             dir->id[i] = node->id;
+            node->nlink ++;
             found = 1;
+            fnode->child_num ++;
             break;
         }
     }
+    fnode->addr[0] = lfs->nextblock + lfs->buffersize;
+    yrx_writedir(lfs, tid, dir);
+    yrx_writeinode(lfs, tid, &node);
+    yrx_writeinode(lfs, tid, &fnode);
     free(dir);
     return found;
 }
@@ -266,11 +272,18 @@ int yrx_unlinkfile(struct LFS* lfs, int tid, struct INode* fnode, const char* fi
     yrx_readdirfrominode(lfs, tid, fnode, dir);
     for (int i = 0; i < MAX_FILE_NUM; ++i) {
         if (strcmp(dir->filenames[i], filename) == 0) {
+            struct INode node;
+            yrx_readinode(lfs, tid, dir->id[i], &node);
             dir->id[i] = -1;
             found = 1;
+            node.nlink --;
+            yrx_writeinode(lfs, tid, &node);
             break;
         }
     }
+    fnode->addr[0] = lfs->nextblock + lfs->buffersize;
+    yrx_writedir(lfs, tid, dir);
+    yrx_writeinode(lfs, tid, &fnode);
     free(dir);
     return found;
 }
@@ -318,7 +331,7 @@ int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* fil
             struct INode* node = malloc(sizeof(struct INode));
             yrx_createinode(lfs, tid, node); 
             node->addr[0] = lfs->nextblock + lfs->buffersize;
-            node->nlink = 0;
+            node->nlink = 1;
             node->isdir = 1;
             yrx_writedir(lfs, tid, dir);
             // update parent inode
