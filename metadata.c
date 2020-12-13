@@ -22,7 +22,7 @@ int yrx_init_lfs(struct LFS** lfs) {
     //memset((*lfs)->superblock.inodemap, -1, INODE_MAP_SIZE * sizeof(int));
     for (int i = 0; i < INODE_MAP_SIZE; ++i) (*lfs)->superblock.inodemap[i] = -1;
     struct INode root;
-    yrx_createinode(*lfs, 0, &root);
+    yrx_createinode(*lfs, 0, &root, 16895, 0, 0);
     root.isdir = 1;
     //root->block_num = 0;
     struct Directory dir;
@@ -286,7 +286,7 @@ int yrx_unlinkfile(struct LFS* lfs, int tid, struct INode* fnode, const char* fi
     return found;
 }
 
-int yrx_createinode(struct LFS* lfs, int tid, struct INode* node) {
+int yrx_createinode(struct LFS* lfs, int tid, struct INode* node, mode_t mode, uid_t uid, gid_t gid) {
     //node = malloc(sizeof(struct INode));
     for (int i = 0; i < INODE_MAP_SIZE; ++i) {
         if (lfs->superblock.inodemap[i] == -1) {
@@ -302,8 +302,9 @@ int yrx_createinode(struct LFS* lfs, int tid, struct INode* node) {
             node->child_num = 0;
             node->size = 0;
             node->nlink = 0;
-            node->gid = 0;
-            node->uid = 0;
+            node->mode = mode;
+            node->gid = gid;
+            node->uid = uid;
             break;
         }
     }
@@ -315,7 +316,7 @@ int yrx_createinode(struct LFS* lfs, int tid, struct INode* node) {
 // create a inode for it 
 // initial the directory
 // update parent inode
-int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* filename) {  // TODO: relation with createfile
+int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* filename, mode_t mode, uid_t uid, gid_t gid) {  // TODO: relation with createfile
     struct Directory* fdir = malloc(sizeof(struct Directory));
     yrx_readdirfrominode(lfs, tid, fnode, fdir); // read the parent dir
     for (int i = 0; i < MAX_FILE_NUM; ++i) {
@@ -327,10 +328,11 @@ int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* fil
             dir->id[0] = fnode->id;
             // create a inode for it 
             struct INode* node = malloc(sizeof(struct INode));
-            yrx_createinode(lfs, tid, node); 
+            yrx_createinode(lfs, tid, node, mode, uid, gid); 
             node->addr[0] = lfs->nextblock + lfs->buffersize;
             node->nlink = 1;
             node->isdir = 1;
+            
             yrx_writedir(lfs, tid, dir);
             // update parent inode
             fnode->child_num ++;
