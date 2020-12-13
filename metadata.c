@@ -318,6 +318,7 @@ int yrx_createinode(struct LFS* lfs, int tid, struct INode* node, mode_t mode, u
             node->mode = mode;
             node->gid = gid;
             node->uid = uid;
+            for (int i = 0; i < POINTER_PER_INODE; ++i) node->addr[i] = -1;
             break;
         }
     }
@@ -336,6 +337,7 @@ int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* fil
         if (fdir->id[i] == -1) {
             // initial the directory
             struct Directory* dir = malloc(sizeof(struct Directory)); // assign the space
+            for (int i = 0; i < MAX_FILE_NUM; ++i) dir->id[i] = -1;
             strcpy(dir->filenames[0], ".."); // add parent pointer
             strcpy(dir->filenames[1], ".");
             dir->id[0] = fnode->id;
