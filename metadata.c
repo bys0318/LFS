@@ -352,6 +352,7 @@ int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* fil
         }
     }
     free(fdir);
+    yrx_writeinode(lfs, tid, fnode);
     return 0;
 }
 
@@ -365,18 +366,30 @@ int yrx_deletedir(struct LFS* lfs, int tid, struct INode* fnode, const char* fil
         if (strcmp(fdir.filenames[i], filename) == 0) {
             yrx_readinode(lfs, tid, fdir.id[i], &node); // read the dir's inode
             if (node.isdir == 1) {
-                if (node.child_num > 0) return 2; // still have child, cannot delete it
+                if (node.child_num > 0) {
+                    yrx_writeinode(lfs, tid, &node);
+                    yrx_writeinode(lfs, tid, fnode);
+                    return 2; // still have child, cannot delete it
+                }
                 else {
                     lfs->superblock.inodemap[node.id] = -1; // delete the node
                     fdir.filenames[i][0] = '\0';  
                     fdir.id[i] = -1;
                     fnode->child_num --;
+                    fnode->addr[0] = lfs->nextblock + lfs->buffersize;
+                    yrx_writedir(lfs, tid, fdir);
+                    yrx_writeinode(lfs, tid, fnode);
                     return 1;
                 }
             }
-            else return 0;
+            else {
+                yrx_writeinode(lfs, tid, &node);
+                yrx_writeinode(lfs, tid, fnode);
+                return 0;
+            }
         }
     }
+    yrx_writeinode(lfs, tid, fnode);
     return 0;
 }
 
