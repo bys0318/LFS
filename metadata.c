@@ -8,6 +8,7 @@
 // 7. directory should see the subfile's attribute of 
 #include "metadata.h"
 #include <time.h>
+#include<fcntl.h>
 
 struct LFS* lfs;
 
@@ -18,7 +19,7 @@ int yrx_init_lfs(struct LFS** lfs) {
     (*lfs)->nextblock = 1;
     (*lfs)->transaction = 0;
     (*lfs)->buffersize = 0;
-    strcpy((*lfs)->filename, "LFS");
+    strcpy((*lfs)->filename, "/fanzewen/LFS");
     //memset((*lfs)->superblock.inodemap, -1, INODE_MAP_SIZE * sizeof(int));
     for (int i = 0; i < INODE_MAP_SIZE; ++i) (*lfs)->superblock.inodemap[i] = -1;
     struct INode root;
@@ -577,7 +578,6 @@ int INodetoString(FILE *file, struct INode* node){
 
 int SuperBlocktoString(FILE *file, struct SuperBlock* superblock){
     fprintf(file, "Printing Superblock\n");
-    fprintf(file, "Free_block_num: %d\nFree inode num: %d\n", superblock->free_block_num, superblock->free_inode_num);
     fprintf(file, "Inode map { ");
     for (int i = 0; i < INODE_MAP_SIZE; i++){
         fprintf(file, "%d:%d ", i, superblock->inodemap[i]);

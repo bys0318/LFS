@@ -110,9 +110,9 @@ int lfs_chmod(const char*path,mode_t mode,struct fuse_file_info*fi)
 	}
 }
 //TODO: checkusergroup!!!!!!
-static int checkusergroup(const uid_t uid,const gid_t gid)
+int checkusergroup(const uid_t uid,const gid_t gid)
 {
-	return 1;
+	return fuse_get_context()->gid==gid;
 }
 //OK!!!
 static int chown_check(const struct INode*const node,const uid_t uid,const uid_t nuid,const gid_t ngid)
