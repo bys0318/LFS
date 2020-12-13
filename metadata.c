@@ -1,7 +1,7 @@
 // TO DO:
 // 1. adding time --> Done
 // 2. adding mode check
-// 3. adding nlink change 
+// 3. adding nlink change --> Done
 // 4. adding file operation --> Done
 // 5. reboot
 // 6. free the malloc --> Done
@@ -21,21 +21,19 @@ int yrx_init_lfs(struct LFS** lfs) {
     strcpy((*lfs)->filename, "LFS");
     //memset((*lfs)->superblock.inodemap, -1, INODE_MAP_SIZE * sizeof(int));
     for (int i = 0; i < INODE_MAP_SIZE; ++i) (*lfs)->superblock.inodemap[i] = -1;
-    struct INode* root = malloc(sizeof(struct INode));
-    yrx_createinode(*lfs, 0, root);
-    root->isdir = 1;
+    struct INode root;
+    yrx_createinode(*lfs, 0, &root);
+    root.isdir = 1;
     //root->block_num = 0;
-    struct Directory* dir = malloc(sizeof(struct Directory));
-    for (int i = 0; i < MAX_FILE_NUM; i++) dir->id[i] = -1;
-    strcpy(dir->filenames[0], "."); // TODO
-    dir->id[0] = root->id;
-    root->addr[0] = (*lfs)->nextblock + (*lfs)->buffersize;
-    yrx_writedir(*lfs, 0, dir);
+    struct Directory dir;
+    for (int i = 0; i < MAX_FILE_NUM; i++) dir.id[i] = -1;
+    strcpy(dir.filenames[0], "."); // TODO
+    dir.id[0] = root.id;
+    root.addr[0] = (*lfs)->nextblock + (*lfs)->buffersize;
+    yrx_writedir(*lfs, 0, &dir);
     // (*lfs)->superblock.inodemap[root->id] = (*lfs)->nextblock;
-    yrx_writeinode(*lfs, 0, root);
+    yrx_writeinode(*lfs, 0, &root);
     yrx_writebuffertodisk(*lfs);
-    free(root);
-    free(dir);
     return 0;
 }
 
@@ -260,8 +258,8 @@ int yrx_linkfile(struct LFS* lfs, int tid, struct INode* fnode, const char* file
     }
     fnode->addr[0] = lfs->nextblock + lfs->buffersize;
     yrx_writedir(lfs, tid, dir);
-    yrx_writeinode(lfs, tid, &node);
-    yrx_writeinode(lfs, tid, &fnode);
+    yrx_writeinode(lfs, tid, node);
+    yrx_writeinode(lfs, tid, fnode);
     free(dir);
     return found;
 }
@@ -283,7 +281,7 @@ int yrx_unlinkfile(struct LFS* lfs, int tid, struct INode* fnode, const char* fi
     }
     fnode->addr[0] = lfs->nextblock + lfs->buffersize;
     yrx_writedir(lfs, tid, dir);
-    yrx_writeinode(lfs, tid, &fnode);
+    yrx_writeinode(lfs, tid, fnode);
     free(dir);
     return found;
 }
