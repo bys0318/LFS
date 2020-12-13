@@ -478,7 +478,7 @@ int yrx_endtransaction(struct LFS* lfs, int tid) {
 int INodetoString(FILE *file, struct INode* node){
     fprintf(file, "Printing Inode %d\n", node->id);
     fprintf(file, "Size: %lld\nPosition of block in log: %d\nMode: %d\nNlink: %d\nUid: %d\n\
-        Gid: %d\nNblock: %d\nPosition of indirection block: %d\nIsdirectory: %dAccess time: %d\n\
+        Gid: %d\nNblock: %d\nPosition of indirection block: %d\nIsdirectory: %d\nAccess time: %d\n\
         Modify time: %d\nCreate time: %d\n", node->size, node->block_num, node->mode,\
         node->nlink, node->uid, node->gid, node->blocks, node->indir, node->isdir, node->atime,\
         node->mtime, node->ctime);
@@ -493,7 +493,7 @@ int SuperBlocktoString(FILE *file, struct SuperBlock* superblock){
     fprintf(file, "Printing Superblock\n");
     fprintf(file, "Inode map { ");
     for (int i = 0; i < INODE_MAP_SIZE; i++){
-        fprintf(file, "%d:%d ", i, superblock->inodemap[i]);
+        fprintf(file, "%d:%d", i, superblock->inodemap[i]);
     }
     fprintf(file, "}\n\n");
     return 0;
@@ -501,14 +501,17 @@ int SuperBlocktoString(FILE *file, struct SuperBlock* superblock){
 
 int block_dump(struct LFS* lfs){
     FILE *file = fopen("block.txt", "a");
+    fprintf(file, "\nBlock dump START!\n\n");
     SuperBlocktoString(file, &lfs->superblock);
     for (int i = 0; i < INODE_MAP_SIZE; i++){
         if (lfs->superblock.inodemap[i] != -1){
             struct INode* node = malloc(sizeof(struct INode));
-            yrx_readinode(lfs, 0, lfs->superblock.inodemap[i], node);
+            yrx_readinode(lfs, 0, i, node);
             INodetoString(file, node);
             free(node);
         }
     }
+    fprintf(file, "Block dump END!\n");
+    fclose(file);
     return 0;
 }
