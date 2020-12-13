@@ -491,7 +491,6 @@ int INodetoString(FILE *file, struct INode* node){
 
 int SuperBlocktoString(FILE *file, struct SuperBlock* superblock){
     fprintf(file, "Printing Superblock\n");
-    fprintf(file, "Free_block_num: %d\nFree inode num: %d\n", superblock->free_block_num, superblock->free_inode_num);
     fprintf(file, "Inode map { ");
     for (int i = 0; i < INODE_MAP_SIZE; i++){
         fprintf(file, "%d:%d ", i, superblock->inodemap[i]);
