@@ -574,7 +574,16 @@ int yrx_writefile(struct LFS* lfs, int tid, const char* file, struct INode* node
     return 0;
 }
 
+static void sleep_ms(unsigned int secs)
+{
+    struct timeval tval;
+    tval.tv_sec=secs/1000;
+    tval.tv_usec=(secs*1000)%1000000;
+    select(0,NULL,NULL,NULL,&tval);
+}
+
 int yrx_begintransaction(struct LFS* lfs) {
+    while (lfs->transaction == 1) sleep_ms(100);
     if (lfs->transaction == 0) {
         lfs->transaction = 1;
         return 1;
@@ -628,3 +637,4 @@ int block_dump(struct LFS* lfs){
     }
     return 0;
 }
+

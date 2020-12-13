@@ -15,6 +15,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/select.h>
+
 
 struct INode {
     int id; // inode id
@@ -92,7 +94,8 @@ int yrx_createinode(struct LFS* lfs, int tid, struct INode* node, mode_t mode, u
 int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* filename, mode_t mode, uid_t uid, gid_t gid);
 int yrx_deletedir(struct LFS* lfs, int tid, struct INode* fnode, const char* filename);
 int yrx_writefile(struct LFS* lfs, int tid, const char* file, struct INode* node, size_t size, off_t offset);
-
+int yrx_simpleread(struct LFS* lfs, int tid, char* file, struct INode* node, size_t size, off_t offset);
+int yrx_simplewrite(struct LFS* lfs, int tid, const char* file, struct INode* node, size_t size, off_t offset);
 // transaction
 int yrx_begintransaction(struct LFS* lfs);//transaction tid 0:ERROR
 int yrx_endtransaction(struct LFS* lfs,int tid);//0:ERROR 1:Y
