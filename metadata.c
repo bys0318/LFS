@@ -240,6 +240,9 @@ int yrx_renamefile(struct LFS* lfs, int tid, struct INode* fnode, const char* or
         }
     }
     free(dir);
+    fnode->addr[0] = lfs->nextblock + lfs->buffersize;
+    yrx_writedir(lfs, tid, dir);
+    yrx_writeinode(lfs, tid, fnode);
     return found;
 }
 
@@ -248,7 +251,8 @@ int yrx_linkfile(struct LFS* lfs, int tid, struct INode* fnode, const char* file
     struct Directory* dir = malloc(sizeof(struct Directory));
     yrx_readdirfrominode(lfs, tid, fnode, dir);
     for (int i = 0; i < MAX_FILE_NUM; ++i) {
-        if (strcmp(filename, dir->filenames[i]) == 0) {
+        if (dir->id[i] == -1) {
+            strcpy(dir->filenames[i], filename);
             dir->id[i] = node->id;
             node->nlink ++;
             found = 1;
