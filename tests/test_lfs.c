@@ -1,4 +1,4 @@
-// gcc test_lfs.c -o test_lfs
+// gcc ../main.c ../metadata.h -o test_lfs
 // Testing on basic file operations (linux style)
 #include <stdio.h>
 #include <unistd.h>
@@ -95,10 +95,7 @@ int main(int argc, char *argv[]){
     memset(buf2, 0, 1024);
     memset(buf3, 0, 1024);
     memset(buf4, 0, 1024);
-    printf("4. test chmod / chown / ls -l\n");
-    popen("chown :everyone test/a/b.txt", "r");
-    popen("chown :everyone mount/a/b.txt", "r");
-    sleep(1);
+    printf("4. test chmod / ls -l\n");
     popen("chmod 544 test/a/b.txt", "r");
     popen("chmod 544 mount/a/b.txt", "r");
     sleep(1);
@@ -111,9 +108,9 @@ int main(int argc, char *argv[]){
     fread(buf1, sizeof(char), sizeof(buf1), stream1);
     fread(buf2, sizeof(char), sizeof(buf2), stream2);
     if (strcmp(buf1, buf2)==0)
-        printf("chmod / chown / ls -l SUCCESS\n");
+        printf("chmod / ls -l SUCCESS\n");
     else
-        printf("chmod / chown / ls -l FAILED\n");
+        printf("chmod / ls -l FAILED\n");
     
     // test modifying file (more than one block)
     printf("5. test modifying file\n");
