@@ -1,13 +1,14 @@
 // TO DO:
 // 1. adding time --> Done
-// 2. adding mode check
+// 2. adding mode check --> Done
 // 3. adding nlink change --> Done
-// 4. adding file operation --> Done
+// 4. adding file operation --> 
 // 5. reboot
 // 6. free the malloc --> Done
 // 7. directory should see the subfile's attribute of 
 #include "metadata.h"
 #include <time.h>
+#include<fcntl.h>
 
 struct LFS* lfs;
 
@@ -44,8 +45,9 @@ int yrx_init_indir(struct Indirection* indir) {
 }
 
 int yrx_check_access(struct INode* node, uid_t uid) {
-    return 1;
-    //unsigned int user = node->mode / 64, group = (node->mode / 8) % 8, all = node->mode % 8;
+    if (uid == node->uid) return node->mode & S_IXUSR;
+    else if (checkusergroup(uid, node->gid)) return node->mode & S_IXGRP;
+    else return node->mode & S_IXOTH;
 }
 
 int yrx_readblockfromdisk(struct LFS* lfs, int block_num, void* block, int size, int time) {
@@ -93,6 +95,12 @@ int yrx_writebuffertodisk(struct LFS* lfs) {
     return 0;
 }
 
+int yrx_readblock(struct LFS* lfs, int tid, int block_num, void* block, int size, int time) {
+    if (block_num < 0) return 0;
+    else if (block_num < lfs->nextblock) yrx_readblockfromdisk(lfs, block_num, block, size, time);
+    else yrx_readblockfrombuffer(lfs, block_num - lfs->nextblock, block, size, time);
+}
+
 int yrx_readinode(struct LFS* lfs, int tid, int id, struct INode* node) {
     if (id < 0) return 0;
     int block_num = lfs->superblock.inodemap[id];
@@ -138,7 +146,7 @@ int yrx_readinodefrompath(struct LFS* lfs, int tid, const char* path, struct INo
         int end = strlen(path);
         while (found == 0 && index < end) {
             index ++;
-            if (yrx_check_access(node, uid) == 1) { // has the permission
+            if (yrx_check_access(node, uid)) { // has the permission
                 // from the directory to find the next one
                 char nextname[MAX_FILENAME];
                 int tmp = 0;
@@ -151,6 +159,7 @@ int yrx_readinodefrompath(struct LFS* lfs, int tid, const char* path, struct INo
                 for (int i = 0; i < MAX_FILE_NUM; ++i) {
                     if (strcmp(nextname, dir.filenames[i]) == 0) {
                         found = yrx_readinode(lfs, tid, dir.id[i], node);
+                        yrx_writeinode(lfs, tid, node);
                         break;
                     }
                 }
@@ -309,6 +318,7 @@ int yrx_createinode(struct LFS* lfs, int tid, struct INode* node, mode_t mode, u
             node->mode = mode;
             node->gid = gid;
             node->uid = uid;
+            for (int i = 0; i < POINTER_PER_INODE; ++i) node->addr[i] = -1;
             break;
         }
     }
@@ -327,6 +337,7 @@ int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* fil
         if (fdir->id[i] == -1) {
             // initial the directory
             struct Directory* dir = malloc(sizeof(struct Directory)); // assign the space
+            for (int i = 0; i < MAX_FILE_NUM; ++i) dir->id[i] = -1;
             strcpy(dir->filenames[0], ".."); // add parent pointer
             strcpy(dir->filenames[1], ".");
             dir->id[0] = fnode->id;
@@ -336,14 +347,13 @@ int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* fil
             node->addr[0] = lfs->nextblock + lfs->buffersize;
             node->nlink = 1;
             node->isdir = 1;
-            
+            dir->id[1] = node->id;
             yrx_writedir(lfs, tid, dir);
             // update parent inode
             fnode->child_num ++;
             // update parent directory
             strcpy(fdir->filenames[i], filename);
             fdir->id[i] = node->id;
-            dir->id[i] = node->id;
             yrx_writeinode(lfs, tid, node);
             fnode->addr[0] = lfs->nextblock + lfs->buffersize;            
             yrx_writedir(lfs, tid, fdir);
@@ -381,7 +391,7 @@ int yrx_deletedir(struct LFS* lfs, int tid, struct INode* fnode, const char* fil
                     fdir.id[i] = -1;
                     fnode->child_num --;
                     fnode->addr[0] = lfs->nextblock + lfs->buffersize;
-                    yrx_writedir(lfs, tid,&fdir);
+                    yrx_writedir(lfs, tid, &fdir);
                     yrx_writeinode(lfs, tid, fnode);
                     return 1;
                 }
@@ -401,19 +411,97 @@ int yrx_deletedir(struct LFS* lfs, int tid, struct INode* fnode, const char* fil
 // clear buffer
 // write to block directly
 // update the inode
-int yrx_writefile(struct LFS* lfs, int tid, const char* file, struct INode* node, size_t size, off_t offset) { // TODO
+int yrx_writefile(struct LFS* lfs, int tid, const char* file, struct INode* node, size_t size, off_t offset) { 
     yrx_writebuffertodisk(lfs);
     // update the inode
     // [start, end]
+    char* buffer = malloc(size + 2 * BLOCK_SIZE); // two extra blocks for begin and end
     int start_block_num = offset / BLOCK_SIZE;
     int end_block_num = (offset + size) / BLOCK_SIZE + 1;
+    int maxend = POINTER_PER_INODE - 1;
+    struct Indirection* indir = malloc(sizeof(struct Indirection));
+    int address = node->indir;
+    int realaddr = lfs->nextblock;
+    int base = realaddr + end_block_num - start_block_num + 1;
     if (end_block_num < POINTER_PER_INODE) { // no need of indirection
+        for (int i = start_block_num; i <= end_block_num; ++i) {
+            if (node->addr[i] == -1) break;
+            if (i == start_block_num || i == end_block_num) yrx_readblock(lfs, tid, node->addr[i], buffer + i - start_block_num, BLOCK_SIZE, 1);
+        }
         for (int i = start_block_num; i <= end_block_num; ++i) node->addr[i] = lfs->nextblock + i - start_block_num;
+        memcpy(buffer+offset-start_block_num * BLOCK_SIZE, file, size);
+    }
+    else if (start_block_num < POINTER_PER_INODE) {
+        yrx_readblock(lfs, tid, node->addr[start_block_num], buffer, BLOCK_SIZE, 1);
+        for (int i = 0; i < POINTER_PER_INODE; ++i) node->addr[i] = realaddr ++;
+        node->indir = base++;
+        yrx_writeinode(lfs, tid, node);
+        while (maxend < end_block_num) {
+            if (address == -1) yrx_init_indir(indir);
+            else yrx_readindirectionblock(lfs, tid, address, indir);
+            address = indir->indir;
+            maxend += BLOCK_PER_INDIRECTION;
+            if (end_block_num <= maxend) break;
+            else indir->indir = base ++;
+            for (int i = 0; i < BLOCK_PER_INDIRECTION; ++i) indir->blocks[i] = realaddr ++;
+            yrx_writeblocktobuffer(lfs, indir, sizeof(struct Indirection));
+        }
+        yrx_readblock(lfs, tid, indir->blocks[(end_block_num - POINTER_PER_INODE) % BLOCK_PER_INDIRECTION], buffer + end_block_num - start_block_num, BLOCK_SIZE, 1);
+        for (int i = 0; i <= (end_block_num - POINTER_PER_INODE) % BLOCK_PER_INDIRECTION; ++i) indir->blocks[i] = realaddr++;
+        yrx_writeblocktobuffer(lfs, indir, sizeof(struct Indirection));
     }
     else {
-        if (start_block_num < 10) {
+        node->indir = base++;
+        yrx_writeinode(lfs, tid, node);
+        while (maxend < start_block_num) {
+            if (address == -1) yrx_init_indir(indir);
+            else yrx_readindirectionblock(lfs, tid, address, indir);
+            address = indir->indir;
+            maxend += BLOCK_PER_INDIRECTION;
+            if (maxend < end_block_num) indir->indir = base++;
+            yrx_writeblocktobuffer(lfs, indir, sizeof(struct Indirection));
+        }
+        yrx_readblock(lfs, tid, indir->blocks[(start_block_num - POINTER_PER_INODE) % BLOCK_PER_INDIRECTION], buffer, BLOCK_SIZE, 1);
+        for (int i = start_block_num; i < maxend; ++i) indir->blocks[(i-POINTER_PER_INODE)%BLOCK_PER_INDIRECTION] = realaddr ++;
+        yrx_writeblocktobuffer(lfs, indir, sizeof(struct Indirection));
+        // deal the first one 
+        // Now indirection contains the start block
+        while (maxend < end_block_num) {
+            if (address == -1) yrx_init_indir(indir);
+            else yrx_readindirectionblock(lfs, tid, address, indir);
+            address = indir->indir;
+            maxend += BLOCK_PER_INDIRECTION;
+            if (end_block_num <= maxend) break;
+            else indir->indir = base ++;
+            for (int i = 0; i < BLOCK_PER_INDIRECTION; ++i) indir->blocks[i] = realaddr ++;
+            yrx_writeblocktobuffer(lfs, indir, sizeof(struct Indirection));
+        }
+        yrx_readblock(lfs, tid, indir->blocks[(end_block_num - POINTER_PER_INODE) % BLOCK_PER_INDIRECTION], buffer + end_block_num - start_block_num, BLOCK_SIZE, 1);
+        for (int i = 0; i <= (end_block_num - POINTER_PER_INODE) % BLOCK_PER_INDIRECTION; ++i) indir->blocks[i] = realaddr++;
+        yrx_writeblocktobuffer(lfs, indir, sizeof(struct Indirection));
+    }
+    memcpy(buffer+offset-start_block_num*BLOCK_SIZE, file, size);
+    free(indir);
+    yrx_writeblocktodisk(lfs, lfs->nextblock, buffer, sizeof(buffer), 1);
+    yrx_writebuffertodisk(lfs);
+    /**
+    if (end_block_num < POINTER_PER_INODE) { // no need of indirection
+        for (int i = start_block_num; i <= end_block_num; ++i) {
+            if (node->addr[i] == -1) break;
+            if (i == start_block_num || i == end_block_num) {
+                if (node->addr[i] < lfs->nextblock) yrx_readblockfromdisk(lfs, node->addr[i], buffer + i - start_block_num, BLOCK_SIZE, 1);
+                else yrx_readblockfrombuffer(lfs, node->addr[i] - lfs->nextblock, buffer + i - start_block_num, BLOCK_SIZE, 1);
+            }
+        }
+        for (int i = start_block_num; i <= end_block_num; ++i) node->addr[i] = lfs->nextblock + i - start_block_num;
+        memcpy(buffer+offset-start_block_num * BLOCK_SIZE, file, size);
+    }
+    else {
+        if (start_block_num < POINTER_PER_INODE) {
+            if (node->addr[start_block_num] > -1) yrx_readblock(lfs, tid, node->addr[start_block_num], buffer, BLOCK_SIZE, 1);
             for (int i = start_block_num; i < POINTER_PER_INODE; ++i) node->addr[i] = lfs->nextblock + i - start_block_num;
             yrx_writeinode(lfs, tid, node);
+            while (end_block_num)
         }
         else {
             int index = 0;
@@ -455,6 +543,7 @@ int yrx_writefile(struct LFS* lfs, int tid, const char* file, struct INode* node
     }
     yrx_writeblocktodisk(lfs, lfs->nextblock, file, size, 1);
     yrx_writebuffertodisk(lfs);
+    **/
     return 0;
 }
 
