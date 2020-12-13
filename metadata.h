@@ -10,6 +10,7 @@
 #define MAX_FILE_NUM 20
 #define MAX_BUFFER_SIZE 102400
 #define BLOCK_PER_INDIRECTION 255
+#define MODE_DIR_777 16895
 
 #include <string.h>
 #include <stdio.h>
@@ -40,8 +41,6 @@ struct Directory {
 
 struct SuperBlock {
     int inodemap[INODE_MAP_SIZE];
-    int free_block_num;
-    int free_inode_num;
 };
 
 struct LFS {
@@ -98,6 +97,7 @@ int yrx_endtransaction(struct LFS* lfs,int tid);//0:ERROR 1:Y
 
 // permission check
 int yrx_check_access(struct INode* node, uid_t uid);
+int checkusergroup(const uid_t uid, const gid_t gid);
 
 // pretty print
 int INodetoString(FILE *file, struct INode* node);
