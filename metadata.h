@@ -87,8 +87,8 @@ int yrx_readindirectionblock(struct LFS* lfs, int tid, int addr, struct Indirect
 int yrx_renamefile(struct LFS* lfs, int tid, struct INode* fnode, const char* originname, const char* newname);
 int yrx_linkfile(struct LFS* lfs, int tid, struct INode* fnode, const char* filename, struct INode* node);
 int yrx_unlinkfile(struct LFS* lfs, int tid, struct INode* fnode, const char* filename);
-int yrx_createinode(struct LFS* lfs, int tid, struct INode* node);
-int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* filename);
+int yrx_createinode(struct LFS* lfs, int tid, struct INode* node, mode_t mode, uid_t uid, gid_t gid);
+int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* filename, mode_t mode, uid_t uid, gid_t gid);
 int yrx_deletedir(struct LFS* lfs, int tid, struct INode* fnode, const char* filename);
 int yrx_writefile(struct LFS* lfs, int tid, const char* file, struct INode* node, size_t size, off_t offset);
 
