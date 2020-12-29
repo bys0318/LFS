@@ -1,0 +1,374 @@
+INIT, <0xea443d0c>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.Trash>, <0x3fffec80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.Trash-1000>, <0x3fffec80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61c80>, <0x00000000>
+0
+CREATE, </home/yrx/fuse-3.10.1/project/hello/a>, <33204>, <0x3fffed30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a>, <0x3fffec40>, <0x3fffed30>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a>, <0x3fffebb0>, <0x00000000>
+1
+RELEASE, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61d30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c70>
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c70>
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c70>
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c70>
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPEN, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61d30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x3fffec80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x44d61c80>, <0x00000000>
+0
+CREATE, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <33152>, <0x3fffed30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x3fffec40>, <0x3fffed30>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swpx>, <0x44d61c80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swpx>, <0x3fffec80>, <0x00000000>
+0
+CREATE, </home/yrx/fuse-3.10.1/project/hello/.a.swpx>, <33152>, <0x44d61d30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swpx>, <0x44d61c40>, <0x44d61d30>
+1
+RELEASE, </home/yrx/fuse-3.10.1/project/hello/.a.swpx>, <0x3fffed30>
+UNLINK, </home/yrx/fuse-3.10.1/project/hello/.a.swpx>
+RELEASE, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x44d61d30>
+UNLINK, </home/yrx/fuse-3.10.1/project/hello/.a.swp>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x44d61c80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x44d61c80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x3fffec80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x44d61c80>, <0x00000000>
+0
+CREATE, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <33152>, <0x3fffed30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x3fffec40>, <0x3fffed30>
+1
+WRITE, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x44460060>, <4096>, <0>, <0x44d61d90>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.xdg-volume-info>, <0x44d61c80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/autorun.inf>, <0x44d61c80>, <0x00000000>
+0
+CHMOD, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <33188>, <0x00000000>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x44d61bb0>, <0x00000000>
+1
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c70>
+RELEASE, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61d30>
+OPEN, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61d30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c50>, <0x00000000>
+1
+READ, </home/yrx/fuse-3.10.1/project/hello/a>, <0x40002960>, <4096>, <0>, <0x44d61d30>
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x40002890>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASE, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61d30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61c50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c50>, <0x00000000>
+1
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002510>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002590>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002610>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x30000dd0>, <0x44f8a310>, <0>, <0x3f7fdc00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x40003330>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c80>
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec70>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc50>, <0x00000000>
+1
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x38002690>, <0x44f8a310>, <0>, <0x44d61c00>, 
+[name].
+[name]a
+[name].a.swp
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c80>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/autorun.inf>, <0x44d61c80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc50>, <0x00000000>
+1
+WRITE, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x44460060>, <4096>, <0>, <0x44d61d90>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a>, <0x3f7fdc80>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c50>, <0x00000000>
+1
+OPEN, </home/yrx/fuse-3.10.1/project/hello/a>, <0x3fffed30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a~>, <0x3f7fdc80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a~>, <0x44d61c80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a~>, <0x3fffec80>, <0x00000000>
+0
+CREATE, </home/yrx/fuse-3.10.1/project/hello/a~>, <33204>, <0x3f7fdd30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a~>, <0x3f7fdc40>, <0x3f7fdd30>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a~>, <0x44d61c50>, <0x00000000>
+1
+CHOWN, </home/yrx/fuse-3.10.1/project/hello/a~>, <-1>, <1000>, <0x00000000>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a~>, <0x3fffebb0>, <0x00000000>
+1
+READ, </home/yrx/fuse-3.10.1/project/hello/a>, <0x30002310>, <4096>, <0>, <0x3f7fdd30>
+RELEASE, </home/yrx/fuse-3.10.1/project/hello/a~>, <0x44d61d30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a~>, <0x44d61bb0>, <0x00000000>
+1
+RELEASE, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61d30>
+OPEN, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61d30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a>, <0x3fffec50>, <0x00000000>
+1
+WRITE, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44460060>, <5>, <0>, <0x44d61d90>
+CHMOD, </home/yrx/fuse-3.10.1/project/hello/a>, <33204>, <0x00000000>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a>, <0x3f7fdbb0>, <0x00000000>
+1
+RELEASE, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61d30>
+WRITE, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x4435e060>, <4096>, <0>, <0x3fffed90>
+UNLINK, </home/yrx/fuse-3.10.1/project/hello/a~>
+RELEASE, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x3fffed30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/.a.swp>, <0x3fffec80>, <0x00000000>
+1
+UNLINK, </home/yrx/fuse-3.10.1/project/hello/.a.swp>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/aa>, <0x3f7fdc80>, <0x00000000>
+0
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61c80>, <0x00000000>
+1
+OPEN, </home/yrx/fuse-3.10.1/project/hello/a>, <0x3f7fdd30>
+READ, </home/yrx/fuse-3.10.1/project/hello/a>, <0x38002760>, <4096>, <0>, <0x3fffed30>
+RELEASE, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61d30>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c50>, <0x00000000>
+1
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc70>
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x300014b0>, <0x44f8a310>, <0>, <0x3fffec00>, 
+[name].
+[name]a
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc80>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61c80>, <0x00000000>
+1
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc70>
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x30001530>, <0x44f8a310>, <0>, <0x3fffec00>, 
+[name].
+[name]a
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc80>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x44d61c50>, <0x00000000>
+1
+OPENDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc70>
+READDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x300015b0>, <0x44f8a310>, <0>, <0x3fffec00>, 
+[name].
+[name]a
+RELEASEDIR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc80>
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3fffec50>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/a>, <0x44d61c80>, <0x00000000>
+1
+GETATTR, </home/yrx/fuse-3.10.1/project/hello/>, <0x3f7fdc50>, <0x00000000>
+1
