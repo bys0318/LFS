@@ -18,7 +18,7 @@
 
 struct INode {
     int id; // inode id
-    off_t size; // file size
+    size_t size; // file size
     int block_num; // where inode is
     mode_t mode; // type and permission
 	nlink_t nlink; // hard link number
@@ -49,6 +49,7 @@ struct LFS {
     int nextblock;
     int transaction;
     int buffersize;
+    int filesize;
     unsigned char buffer[MAX_BUFFER_SIZE];
 };
 
@@ -105,4 +106,7 @@ int checkusergroup(const uid_t uid, const gid_t gid);
 int INodetoString(FILE *file, struct INode* node);
 int SuperBlocktoString(FILE *file, struct SuperBlock* superblock);
 int block_dump(struct LFS* lfs);
+
+// clean
+int clean();
 #endif

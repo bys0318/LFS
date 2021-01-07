@@ -631,3 +631,49 @@ int block_dump(struct LFS* lfs){
     }
     return 0;
 }
+
+int clean(int tid) { // INode did not update file size
+    char* buffer = malloc(lfs->filesize);
+    INode node;
+    int blockIndex = 0; // TO DO: adjust later
+    int lastfilesize = 0;
+    for (int i = 0; i < INODE_MAP_SIZE; ++i) {
+        if (lfs->inodemap[i] > -1) yrx_readinode(lfs, tid, i, &node);
+        if (node.isdir == 0) { // is file
+            yrx_readfilefrominode(lfs, tid, buffer + blockIndex * BLOCK_SIZE, &node, node.size, 0);
+            if (node.blocks <= POINTER_PER_INODE) for (int i = 0; i < node.blocks; ++i) node.addr[i] = blockIndex++;
+            else {
+                for (int i = 0; i < POINTER_PER_INODE; ++i) node.addr[i] = blockIndex++;
+                int addr = node.indir;
+                node.indir = base++;
+                while (addr > -1) {
+                    Indirection indir;
+                    yrx_readindirectionblock(lfs, tid, addr, &indir);
+                    addr = indir.indir;
+                    for (int i = 0; i < BLOCK_PER_INDIRECTION; ++i) {
+                        if (indir.block > -1 ) indir.blocks[i] = blockIndex++;
+                        else break;
+                    }
+                    if (addr > -1) indir.indir = base;
+                    memcopy(buffer + base * BLOCK_SIZE, &indir, sizeof(Indirection));
+                    base++;
+                }
+                blockIndex = base;
+            }
+        }
+        else { // is directory
+            Directory dir;
+            yrx_readdirfrominode(lfs, tid, &node, &dir);
+            node.addr[0] = blockIndex;
+            memcpy(buffer + blockIndex * BLOCK_SIZE, &dir, sizeof(Directory));
+            blockIndex++;
+        }
+        lfs->superblock.inodemap[i] = blockIndex;
+        memcopy(buffer + blockIndex * BLOCK_SIZE, &node, sizeof(INode));
+        blockIndex++;
+    }
+    lfs->nextblock = 0; // TO DO: adjust later
+    lfs->filesize = (blockIndex - 1) * BLOCK_SIZE + lastfilesize; 
+    yrx_writeblocktodisk(lfs, lfs->nextblock, buffer, lfs->filesize, 1);
+    lfs->nextblock += blockIndex;
+}
