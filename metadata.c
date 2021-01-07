@@ -21,7 +21,7 @@ int yrx_init_lfs(struct LFS** lfs) {
     (*lfs)->nextblock = 1;
     (*lfs)->transaction = 0;
     (*lfs)->buffersize = 0;
-    strcpy((*lfs)->filename, "/home/bys/LFS");
+    strcpy((*lfs)->filename, "/mnt/c/Users/'Yang Ruixiao'/Desktop/LFS");
     //memset((*lfs)->superblock.inodemap, -1, INODE_MAP_SIZE * sizeof(int));
     for (int i = 0; i < INODE_MAP_SIZE; ++i) (*lfs)->superblock.inodemap[i] = -1;
     struct INode root;
@@ -318,6 +318,7 @@ int yrx_unlinkfile(struct LFS* lfs, int tid, struct INode* fnode, const char* fi
             dir->id[i] = -1;
             found = 1;
             node.nlink --;
+            if (node.nlink == 0) lfs->superblock.inodemap[node.id] = -1; // release the inode
             yrx_writeinode(lfs, tid, &node);
             break;
         }
@@ -588,7 +589,7 @@ static void sleep_ms(unsigned int secs)
 }
 
 int yrx_begintransaction(struct LFS* lfs) {
-    if (lfs->nextblock > 1024 * 49)
+    if (lfs->nextblock > 1024 * 49) clean(1);
     if (lfs->transaction == 0) {
         lfs->transaction = 1;
         return 1;
@@ -625,7 +626,7 @@ int SuperBlocktoString(FILE *file, struct SuperBlock* superblock){
     return 0;
 }
 
-int block_dump(struct LFS* lfs){
+int block_dump(struct LFS* lfs){ return 0;
     FILE *file = fopen("/home/bys/block.txt", "a");
     fprintf(file, "\nBlock dump START!\n\n");
     SuperBlocktoString(file, &lfs->superblock);
@@ -645,12 +646,13 @@ int block_dump(struct LFS* lfs){
 
 int clean(int tid) { // INode did not update file size
     char* buffer = malloc(lfs->nextblock * BLOCK_SIZE);
-    INode node;
+    struct INode node;
     int blockIndex = 0; // TO DO: adjust later
     int lastfilesize = 0;
     for (int i = 0; i < INODE_MAP_SIZE; ++i) {
-        if (lfs->inodemap[i] > -1) yrx_readinode(lfs, tid, i, &node);
+        if (lfs->superblock.inodemap[i] > -1) yrx_readinode(lfs, tid, i, &node);
         if (node.isdir == 0) { // is file
+            int base = node.blocks + blockIndex;
             yrx_readfilefrominode(lfs, tid, buffer + blockIndex * BLOCK_SIZE, &node, node.size, 0);
             if (node.blocks <= POINTER_PER_INODE) for (int i = 0; i < node.blocks; ++i) node.addr[i] = blockIndex++;
             else {
@@ -658,29 +660,29 @@ int clean(int tid) { // INode did not update file size
                 int addr = node.indir;
                 node.indir = base++;
                 while (addr > -1) {
-                    Indirection indir;
+                    struct Indirection indir;
                     yrx_readindirectionblock(lfs, tid, addr, &indir);
                     addr = indir.indir;
                     for (int i = 0; i < BLOCK_PER_INDIRECTION; ++i) {
-                        if (indir.block > -1 ) indir.blocks[i] = blockIndex++;
+                        if (indir.blocks[i] > -1 ) indir.blocks[i] = blockIndex++;
                         else break;
                     }
                     if (addr > -1) indir.indir = base;
-                    memcopy(buffer + base * BLOCK_SIZE, &indir, sizeof(struct Indirection));
+                    memcpy(buffer + base * BLOCK_SIZE, &indir, sizeof(struct Indirection));
                     base++;
                 }
                 blockIndex = base;
             }
         }
         else { // is directory
-            Directory dir;
+            struct Directory dir;
             yrx_readdirfrominode(lfs, tid, &node, &dir);
             node.addr[0] = blockIndex;
             memcpy(buffer + blockIndex * BLOCK_SIZE, &dir, sizeof(struct Directory));
             blockIndex++;
         }
         lfs->superblock.inodemap[i] = blockIndex;
-        memcopy(buffer + blockIndex * BLOCK_SIZE, &node, sizeof(struct INode));
+        memcpy(buffer + blockIndex * BLOCK_SIZE, &node, sizeof(struct INode));
         blockIndex++;
     }
     lfs->nextblock = 0; // TO DO: adjust later

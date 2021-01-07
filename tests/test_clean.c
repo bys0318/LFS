@@ -141,7 +141,7 @@ int main(int argc, char *argv[]){
     printf("6. test clean\n");
     char* buffer = malloc(1024 * 1024 * 10);
     for (int i = 0; i < 1024 * 1024; ++i) buffer[i] = 'b';
-    fd = open("mount/a/a.txt", W_RDWR);
+    fd = open("mount/a/a.txt", O_RDWR);
     assert(fd > 0);
     for (int i = 0; i < 100; ++i) {
         int r_write = write(fd, buffer, strlen(buffer));
