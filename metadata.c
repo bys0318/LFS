@@ -688,4 +688,5 @@ int clean(int tid) { // INode did not update file size
     lfs->nextblock = 0; // TO DO: adjust later
     yrx_writeblocktodisk(lfs, lfs->nextblock, buffer, (blockIndex - 1) * BLOCK_SIZE + lastfilesize, 1);
     lfs->nextblock += blockIndex;
+    free(buffer);
 }
