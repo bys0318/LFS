@@ -108,4 +108,7 @@ int checkusergroup(const uid_t uid, const gid_t gid);
 int INodetoString(FILE *file, struct INode* node);
 int SuperBlocktoString(FILE *file, struct SuperBlock* superblock);
 int block_dump(struct LFS* lfs);
+
+// clean 
+int clean(int tid);
 #endif
