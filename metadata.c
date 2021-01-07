@@ -588,7 +588,7 @@ static void sleep_ms(unsigned int secs)
 }
 
 int yrx_begintransaction(struct LFS* lfs) {
-    if (lfs->nextblock > )
+    if (lfs->nextblock > 1024 * 49)
     if (lfs->transaction == 0) {
         lfs->transaction = 1;
         return 1;
@@ -666,7 +666,7 @@ int clean(int tid) { // INode did not update file size
                         else break;
                     }
                     if (addr > -1) indir.indir = base;
-                    memcopy(buffer + base * BLOCK_SIZE, &indir, sizeof(Indirection));
+                    memcopy(buffer + base * BLOCK_SIZE, &indir, sizeof(struct Indirection));
                     base++;
                 }
                 blockIndex = base;
@@ -676,11 +676,11 @@ int clean(int tid) { // INode did not update file size
             Directory dir;
             yrx_readdirfrominode(lfs, tid, &node, &dir);
             node.addr[0] = blockIndex;
-            memcpy(buffer + blockIndex * BLOCK_SIZE, &dir, sizeof(Directory));
+            memcpy(buffer + blockIndex * BLOCK_SIZE, &dir, sizeof(struct Directory));
             blockIndex++;
         }
         lfs->superblock.inodemap[i] = blockIndex;
-        memcopy(buffer + blockIndex * BLOCK_SIZE, &node, sizeof(INode));
+        memcopy(buffer + blockIndex * BLOCK_SIZE, &node, sizeof(struct INode));
         blockIndex++;
     }
     lfs->nextblock = 0; // TO DO: adjust later
