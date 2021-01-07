@@ -141,13 +141,13 @@ int main(int argc, char *argv[]){
     printf("6. test clean\n");
     char* buffer = malloc(1024 * 1024 * 10);
     for (int i = 0; i < 1024 * 1024; ++i) buffer[i] = 'b';
-    fd = open("mount/a/a.txt", O_RDWR);
-    assert(fd > 0);
     for (int i = 0; i < 100; ++i) {
+        fd = open("mount/a/a.txt", O_RDWR);
+        assert(fd > 0);
         int r_write = write(fd, buffer, strlen(buffer));
         printf("Number of bytes written to file : %d\n", r_write);
+        close(fd);
     }
-    close(fd);
     free(buffer);
     printf("--------Test Clean: Completed--------\n");
 }
