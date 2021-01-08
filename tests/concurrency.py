@@ -5,12 +5,12 @@ import os
 
 def read(name):
     logging.info("Thread %s: start reading", name)
-    os.system("cat mount1/large.1MB.{}".format(name))
+    os.system("cat mount/large.1MB.{}".format(name))
     logging.info("Thread %s: finish reading", name)
 
 def write(name):
     logging.info("Thread %s: start writing", name)
-    os.system("cp large.1M mount1/large.1MB.{}".format(name))
+    os.system("cp large.1M mount/large.1MB.{}".format(name))
     logging.info("Thread %s: finish writing", name)
 
 if __name__ == "__main__":

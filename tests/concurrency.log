@@ -1,260 +1,260 @@
-2021-01-08 23:27:40,179 - lab2.py[line:12] - INFO: Thread 0: start writing
-2021-01-08 23:27:40,638 - lab2.py[line:14] - INFO: Thread 0: finish writing
-2021-01-08 23:27:40,639 - lab2.py[line:12] - INFO: Thread 1: start writing
-2021-01-08 23:27:40,946 - lab2.py[line:14] - INFO: Thread 1: finish writing
-2021-01-08 23:27:40,946 - lab2.py[line:12] - INFO: Thread 2: start writing
-2021-01-08 23:27:41,237 - lab2.py[line:14] - INFO: Thread 2: finish writing
-2021-01-08 23:27:41,237 - lab2.py[line:12] - INFO: Thread 3: start writing
-2021-01-08 23:27:41,508 - lab2.py[line:14] - INFO: Thread 3: finish writing
-2021-01-08 23:27:41,509 - lab2.py[line:12] - INFO: Thread 4: start writing
-2021-01-08 23:27:41,790 - lab2.py[line:14] - INFO: Thread 4: finish writing
-2021-01-08 23:27:41,790 - lab2.py[line:12] - INFO: Thread 5: start writing
-2021-01-08 23:27:42,087 - lab2.py[line:14] - INFO: Thread 5: finish writing
-2021-01-08 23:27:42,087 - lab2.py[line:12] - INFO: Thread 6: start writing
-2021-01-08 23:27:42,391 - lab2.py[line:14] - INFO: Thread 6: finish writing
-2021-01-08 23:27:42,391 - lab2.py[line:12] - INFO: Thread 7: start writing
-2021-01-08 23:27:42,711 - lab2.py[line:14] - INFO: Thread 7: finish writing
-2021-01-08 23:27:42,711 - lab2.py[line:12] - INFO: Thread 8: start writing
-2021-01-08 23:27:42,909 - lab2.py[line:14] - INFO: Thread 8: finish writing
-2021-01-08 23:27:42,909 - lab2.py[line:12] - INFO: Thread 9: start writing
-2021-01-08 23:27:43,184 - lab2.py[line:14] - INFO: Thread 9: finish writing
-2021-01-08 23:27:43,184 - lab2.py[line:7] - INFO: Thread 0: start reading
-2021-01-08 23:27:43,681 - lab2.py[line:9] - INFO: Thread 0: finish reading
-2021-01-08 23:27:43,682 - lab2.py[line:7] - INFO: Thread 1: start reading
-2021-01-08 23:27:44,299 - lab2.py[line:9] - INFO: Thread 1: finish reading
-2021-01-08 23:27:44,299 - lab2.py[line:7] - INFO: Thread 2: start reading
-2021-01-08 23:27:44,767 - lab2.py[line:9] - INFO: Thread 2: finish reading
-2021-01-08 23:27:44,767 - lab2.py[line:7] - INFO: Thread 3: start reading
-2021-01-08 23:27:45,126 - lab2.py[line:9] - INFO: Thread 3: finish reading
-2021-01-08 23:27:45,127 - lab2.py[line:7] - INFO: Thread 4: start reading
-2021-01-08 23:27:45,377 - lab2.py[line:9] - INFO: Thread 4: finish reading
-2021-01-08 23:27:45,377 - lab2.py[line:7] - INFO: Thread 5: start reading
-2021-01-08 23:27:46,099 - lab2.py[line:9] - INFO: Thread 5: finish reading
-2021-01-08 23:27:46,099 - lab2.py[line:7] - INFO: Thread 6: start reading
-2021-01-08 23:27:46,817 - lab2.py[line:9] - INFO: Thread 6: finish reading
-2021-01-08 23:27:46,817 - lab2.py[line:7] - INFO: Thread 7: start reading
-2021-01-08 23:27:47,339 - lab2.py[line:9] - INFO: Thread 7: finish reading
-2021-01-08 23:27:47,339 - lab2.py[line:7] - INFO: Thread 8: start reading
-2021-01-08 23:27:48,037 - lab2.py[line:9] - INFO: Thread 8: finish reading
-2021-01-08 23:27:48,037 - lab2.py[line:7] - INFO: Thread 9: start reading
-2021-01-08 23:27:48,523 - lab2.py[line:9] - INFO: Thread 9: finish reading
-2021-01-08 23:27:48,523 - lab2.py[line:12] - INFO: Thread 0: start writing
-2021-01-08 23:27:48,523 - lab2.py[line:7] - INFO: Thread 0: start reading
-2021-01-08 23:27:48,524 - lab2.py[line:7] - INFO: Thread 0: start reading
-2021-01-08 23:27:48,526 - lab2.py[line:7] - INFO: Thread 0: start reading
-2021-01-08 23:27:48,531 - lab2.py[line:7] - INFO: Thread 0: start reading
-2021-01-08 23:27:48,540 - lab2.py[line:7] - INFO: Thread 0: start reading
-2021-01-08 23:27:48,542 - lab2.py[line:7] - INFO: Thread 0: start reading
-2021-01-08 23:27:48,542 - lab2.py[line:7] - INFO: Thread 0: start reading
-2021-01-08 23:27:48,543 - lab2.py[line:7] - INFO: Thread 0: start reading
-2021-01-08 23:27:48,543 - lab2.py[line:7] - INFO: Thread 0: start reading
-2021-01-08 23:27:48,543 - lab2.py[line:7] - INFO: Thread 0: start reading
-2021-01-08 23:27:48,543 - lab2.py[line:12] - INFO: Thread 1: start writing
-2021-01-08 23:27:48,544 - lab2.py[line:7] - INFO: Thread 1: start reading
-2021-01-08 23:27:48,544 - lab2.py[line:7] - INFO: Thread 1: start reading
-2021-01-08 23:27:48,544 - lab2.py[line:7] - INFO: Thread 1: start reading
-2021-01-08 23:27:48,544 - lab2.py[line:7] - INFO: Thread 1: start reading
-2021-01-08 23:27:48,547 - lab2.py[line:7] - INFO: Thread 1: start reading
-2021-01-08 23:27:48,547 - lab2.py[line:7] - INFO: Thread 1: start reading
-2021-01-08 23:27:48,547 - lab2.py[line:7] - INFO: Thread 1: start reading
-2021-01-08 23:27:48,547 - lab2.py[line:7] - INFO: Thread 1: start reading
-2021-01-08 23:27:48,547 - lab2.py[line:7] - INFO: Thread 1: start reading
-2021-01-08 23:27:48,547 - lab2.py[line:7] - INFO: Thread 1: start reading
-2021-01-08 23:27:48,547 - lab2.py[line:12] - INFO: Thread 2: start writing
-2021-01-08 23:27:48,547 - lab2.py[line:7] - INFO: Thread 2: start reading
-2021-01-08 23:27:48,547 - lab2.py[line:7] - INFO: Thread 2: start reading
-2021-01-08 23:27:48,547 - lab2.py[line:7] - INFO: Thread 2: start reading
-2021-01-08 23:27:48,592 - lab2.py[line:7] - INFO: Thread 2: start reading
-2021-01-08 23:27:48,602 - lab2.py[line:7] - INFO: Thread 2: start reading
-2021-01-08 23:27:48,605 - lab2.py[line:7] - INFO: Thread 2: start reading
-2021-01-08 23:27:48,618 - lab2.py[line:7] - INFO: Thread 2: start reading
-2021-01-08 23:27:48,623 - lab2.py[line:7] - INFO: Thread 2: start reading
-2021-01-08 23:27:48,630 - lab2.py[line:7] - INFO: Thread 2: start reading
-2021-01-08 23:27:48,632 - lab2.py[line:7] - INFO: Thread 2: start reading
-2021-01-08 23:27:48,635 - lab2.py[line:12] - INFO: Thread 3: start writing
-2021-01-08 23:27:48,639 - lab2.py[line:7] - INFO: Thread 3: start reading
-2021-01-08 23:27:48,645 - lab2.py[line:7] - INFO: Thread 3: start reading
-2021-01-08 23:27:48,648 - lab2.py[line:7] - INFO: Thread 3: start reading
-2021-01-08 23:27:48,651 - lab2.py[line:7] - INFO: Thread 3: start reading
-2021-01-08 23:27:48,655 - lab2.py[line:7] - INFO: Thread 3: start reading
-2021-01-08 23:27:48,659 - lab2.py[line:7] - INFO: Thread 3: start reading
-2021-01-08 23:27:48,663 - lab2.py[line:7] - INFO: Thread 3: start reading
-2021-01-08 23:27:48,667 - lab2.py[line:7] - INFO: Thread 3: start reading
-2021-01-08 23:27:48,671 - lab2.py[line:7] - INFO: Thread 3: start reading
-2021-01-08 23:27:48,672 - lab2.py[line:7] - INFO: Thread 3: start reading
-2021-01-08 23:27:48,672 - lab2.py[line:12] - INFO: Thread 4: start writing
-2021-01-08 23:27:48,673 - lab2.py[line:7] - INFO: Thread 4: start reading
-2021-01-08 23:27:48,677 - lab2.py[line:7] - INFO: Thread 4: start reading
-2021-01-08 23:27:48,691 - lab2.py[line:7] - INFO: Thread 4: start reading
-2021-01-08 23:27:48,691 - lab2.py[line:7] - INFO: Thread 4: start reading
-2021-01-08 23:27:48,692 - lab2.py[line:7] - INFO: Thread 4: start reading
-2021-01-08 23:27:48,692 - lab2.py[line:7] - INFO: Thread 4: start reading
-2021-01-08 23:27:48,693 - lab2.py[line:7] - INFO: Thread 4: start reading
-2021-01-08 23:27:48,693 - lab2.py[line:7] - INFO: Thread 4: start reading
-2021-01-08 23:27:48,694 - lab2.py[line:7] - INFO: Thread 4: start reading
-2021-01-08 23:27:48,695 - lab2.py[line:7] - INFO: Thread 4: start reading
-2021-01-08 23:27:48,723 - lab2.py[line:12] - INFO: Thread 5: start writing
-2021-01-08 23:27:48,723 - lab2.py[line:7] - INFO: Thread 5: start reading
-2021-01-08 23:27:48,729 - lab2.py[line:7] - INFO: Thread 5: start reading
-2021-01-08 23:27:48,744 - lab2.py[line:7] - INFO: Thread 5: start reading
-2021-01-08 23:27:48,746 - lab2.py[line:7] - INFO: Thread 5: start reading
-2021-01-08 23:27:48,752 - lab2.py[line:7] - INFO: Thread 5: start reading
-2021-01-08 23:27:48,753 - lab2.py[line:7] - INFO: Thread 5: start reading
-2021-01-08 23:27:48,759 - lab2.py[line:7] - INFO: Thread 5: start reading
-2021-01-08 23:27:48,768 - lab2.py[line:7] - INFO: Thread 5: start reading
-2021-01-08 23:27:48,770 - lab2.py[line:7] - INFO: Thread 5: start reading
-2021-01-08 23:27:48,783 - lab2.py[line:7] - INFO: Thread 5: start reading
-2021-01-08 23:27:48,785 - lab2.py[line:12] - INFO: Thread 6: start writing
-2021-01-08 23:27:48,786 - lab2.py[line:7] - INFO: Thread 6: start reading
-2021-01-08 23:27:48,792 - lab2.py[line:7] - INFO: Thread 6: start reading
-2021-01-08 23:27:48,793 - lab2.py[line:7] - INFO: Thread 6: start reading
-2021-01-08 23:27:48,795 - lab2.py[line:7] - INFO: Thread 6: start reading
-2021-01-08 23:27:48,798 - lab2.py[line:7] - INFO: Thread 6: start reading
-2021-01-08 23:27:48,799 - lab2.py[line:7] - INFO: Thread 6: start reading
-2021-01-08 23:27:48,800 - lab2.py[line:7] - INFO: Thread 6: start reading
-2021-01-08 23:27:48,807 - lab2.py[line:7] - INFO: Thread 6: start reading
-2021-01-08 23:27:48,808 - lab2.py[line:7] - INFO: Thread 6: start reading
-2021-01-08 23:27:48,810 - lab2.py[line:7] - INFO: Thread 6: start reading
-2021-01-08 23:27:48,811 - lab2.py[line:12] - INFO: Thread 7: start writing
-2021-01-08 23:27:48,819 - lab2.py[line:7] - INFO: Thread 7: start reading
-2021-01-08 23:27:48,821 - lab2.py[line:7] - INFO: Thread 7: start reading
-2021-01-08 23:27:48,822 - lab2.py[line:7] - INFO: Thread 7: start reading
-2021-01-08 23:27:48,823 - lab2.py[line:7] - INFO: Thread 7: start reading
-2021-01-08 23:27:48,827 - lab2.py[line:7] - INFO: Thread 7: start reading
-2021-01-08 23:27:48,828 - lab2.py[line:7] - INFO: Thread 7: start reading
-2021-01-08 23:27:48,829 - lab2.py[line:7] - INFO: Thread 7: start reading
-2021-01-08 23:27:48,830 - lab2.py[line:7] - INFO: Thread 7: start reading
-2021-01-08 23:27:48,838 - lab2.py[line:7] - INFO: Thread 7: start reading
-2021-01-08 23:27:48,839 - lab2.py[line:7] - INFO: Thread 7: start reading
-2021-01-08 23:27:48,840 - lab2.py[line:12] - INFO: Thread 8: start writing
-2021-01-08 23:27:48,846 - lab2.py[line:7] - INFO: Thread 8: start reading
-2021-01-08 23:27:48,857 - lab2.py[line:7] - INFO: Thread 8: start reading
-2021-01-08 23:27:48,857 - lab2.py[line:7] - INFO: Thread 8: start reading
-2021-01-08 23:27:48,859 - lab2.py[line:7] - INFO: Thread 8: start reading
-2021-01-08 23:27:48,859 - lab2.py[line:7] - INFO: Thread 8: start reading
-2021-01-08 23:27:48,861 - lab2.py[line:7] - INFO: Thread 8: start reading
-2021-01-08 23:27:48,868 - lab2.py[line:7] - INFO: Thread 8: start reading
-2021-01-08 23:27:48,870 - lab2.py[line:7] - INFO: Thread 8: start reading
-2021-01-08 23:27:48,870 - lab2.py[line:7] - INFO: Thread 8: start reading
-2021-01-08 23:27:48,872 - lab2.py[line:7] - INFO: Thread 8: start reading
-2021-01-08 23:27:48,873 - lab2.py[line:12] - INFO: Thread 9: start writing
-2021-01-08 23:27:48,874 - lab2.py[line:7] - INFO: Thread 9: start reading
-2021-01-08 23:27:48,880 - lab2.py[line:7] - INFO: Thread 9: start reading
-2021-01-08 23:27:48,882 - lab2.py[line:7] - INFO: Thread 9: start reading
-2021-01-08 23:27:48,886 - lab2.py[line:7] - INFO: Thread 9: start reading
-2021-01-08 23:27:48,887 - lab2.py[line:7] - INFO: Thread 9: start reading
-2021-01-08 23:27:48,888 - lab2.py[line:7] - INFO: Thread 9: start reading
-2021-01-08 23:27:48,889 - lab2.py[line:7] - INFO: Thread 9: start reading
-2021-01-08 23:27:48,890 - lab2.py[line:7] - INFO: Thread 9: start reading
-2021-01-08 23:27:48,891 - lab2.py[line:7] - INFO: Thread 9: start reading
-2021-01-08 23:27:48,892 - lab2.py[line:7] - INFO: Thread 9: start reading
-2021-01-08 23:27:49,489 - lab2.py[line:9] - INFO: Thread 8: finish reading
-2021-01-08 23:27:50,514 - lab2.py[line:9] - INFO: Thread 1: finish reading
-2021-01-08 23:27:50,514 - lab2.py[line:9] - INFO: Thread 1: finish reading
-2021-01-08 23:27:51,182 - lab2.py[line:14] - INFO: Thread 7: finish writing
-2021-01-08 23:27:52,069 - lab2.py[line:14] - INFO: Thread 1: finish writing
-2021-01-08 23:27:52,192 - lab2.py[line:14] - INFO: Thread 0: finish writing
-2021-01-08 23:27:52,270 - lab2.py[line:9] - INFO: Thread 1: finish reading
-2021-01-08 23:27:52,272 - lab2.py[line:9] - INFO: Thread 1: finish reading
-2021-01-08 23:27:52,319 - lab2.py[line:9] - INFO: Thread 1: finish reading
-2021-01-08 23:27:52,325 - lab2.py[line:9] - INFO: Thread 1: finish reading
-2021-01-08 23:27:52,337 - lab2.py[line:9] - INFO: Thread 1: finish reading
-2021-01-08 23:27:52,354 - lab2.py[line:9] - INFO: Thread 0: finish reading
-2021-01-08 23:27:52,375 - lab2.py[line:9] - INFO: Thread 0: finish reading
-2021-01-08 23:27:52,388 - lab2.py[line:9] - INFO: Thread 0: finish reading
-2021-01-08 23:27:52,388 - lab2.py[line:9] - INFO: Thread 1: finish reading
-2021-01-08 23:27:52,414 - lab2.py[line:9] - INFO: Thread 0: finish reading
-2021-01-08 23:27:52,419 - lab2.py[line:9] - INFO: Thread 0: finish reading
-2021-01-08 23:27:52,444 - lab2.py[line:9] - INFO: Thread 1: finish reading
-2021-01-08 23:27:52,446 - lab2.py[line:9] - INFO: Thread 0: finish reading
-2021-01-08 23:27:52,446 - lab2.py[line:9] - INFO: Thread 0: finish reading
-2021-01-08 23:27:52,480 - lab2.py[line:9] - INFO: Thread 0: finish reading
-2021-01-08 23:27:52,571 - lab2.py[line:9] - INFO: Thread 0: finish reading
-2021-01-08 23:27:52,588 - lab2.py[line:9] - INFO: Thread 1: finish reading
-2021-01-08 23:27:52,716 - lab2.py[line:9] - INFO: Thread 0: finish reading
-2021-01-08 23:27:52,755 - lab2.py[line:14] - INFO: Thread 4: finish writing
-2021-01-08 23:27:52,861 - lab2.py[line:9] - INFO: Thread 4: finish reading
-2021-01-08 23:27:52,861 - lab2.py[line:9] - INFO: Thread 4: finish reading
-2021-01-08 23:27:52,861 - lab2.py[line:9] - INFO: Thread 4: finish reading
-2021-01-08 23:27:52,862 - lab2.py[line:9] - INFO: Thread 4: finish reading
-2021-01-08 23:27:52,862 - lab2.py[line:9] - INFO: Thread 4: finish reading
-2021-01-08 23:27:53,058 - lab2.py[line:9] - INFO: Thread 4: finish reading
-2021-01-08 23:27:53,220 - lab2.py[line:9] - INFO: Thread 4: finish reading
-2021-01-08 23:27:53,220 - lab2.py[line:9] - INFO: Thread 4: finish reading
-2021-01-08 23:27:53,254 - lab2.py[line:9] - INFO: Thread 4: finish reading
-2021-01-08 23:27:53,264 - lab2.py[line:9] - INFO: Thread 4: finish reading
-2021-01-08 23:27:53,774 - lab2.py[line:9] - INFO: Thread 2: finish reading
-2021-01-08 23:27:53,775 - lab2.py[line:9] - INFO: Thread 2: finish reading
-2021-01-08 23:27:53,776 - lab2.py[line:9] - INFO: Thread 2: finish reading
-2021-01-08 23:27:53,776 - lab2.py[line:9] - INFO: Thread 2: finish reading
-2021-01-08 23:27:54,051 - lab2.py[line:9] - INFO: Thread 2: finish reading
-2021-01-08 23:27:54,051 - lab2.py[line:9] - INFO: Thread 2: finish reading
-2021-01-08 23:27:54,051 - lab2.py[line:9] - INFO: Thread 2: finish reading
-2021-01-08 23:27:54,051 - lab2.py[line:9] - INFO: Thread 2: finish reading
-2021-01-08 23:27:54,052 - lab2.py[line:9] - INFO: Thread 2: finish reading
-2021-01-08 23:27:54,052 - lab2.py[line:9] - INFO: Thread 2: finish reading
-2021-01-08 23:27:54,369 - lab2.py[line:14] - INFO: Thread 2: finish writing
-2021-01-08 23:27:55,467 - lab2.py[line:9] - INFO: Thread 7: finish reading
-2021-01-08 23:27:55,481 - lab2.py[line:9] - INFO: Thread 7: finish reading
-2021-01-08 23:27:55,488 - lab2.py[line:9] - INFO: Thread 7: finish reading
-2021-01-08 23:27:55,490 - lab2.py[line:9] - INFO: Thread 7: finish reading
-2021-01-08 23:27:55,505 - lab2.py[line:9] - INFO: Thread 7: finish reading
-2021-01-08 23:27:55,515 - lab2.py[line:9] - INFO: Thread 7: finish reading
-2021-01-08 23:27:55,609 - lab2.py[line:9] - INFO: Thread 7: finish reading
-2021-01-08 23:27:55,630 - lab2.py[line:9] - INFO: Thread 7: finish reading
-2021-01-08 23:27:55,705 - lab2.py[line:9] - INFO: Thread 9: finish reading
-2021-01-08 23:27:55,708 - lab2.py[line:9] - INFO: Thread 7: finish reading
-2021-01-08 23:27:55,785 - lab2.py[line:9] - INFO: Thread 7: finish reading
-2021-01-08 23:27:56,175 - lab2.py[line:9] - INFO: Thread 3: finish reading
-2021-01-08 23:27:56,175 - lab2.py[line:9] - INFO: Thread 3: finish reading
-2021-01-08 23:27:56,175 - lab2.py[line:9] - INFO: Thread 3: finish reading
-2021-01-08 23:27:56,175 - lab2.py[line:9] - INFO: Thread 3: finish reading
-2021-01-08 23:27:56,175 - lab2.py[line:9] - INFO: Thread 3: finish reading
-2021-01-08 23:27:56,176 - lab2.py[line:9] - INFO: Thread 3: finish reading
-2021-01-08 23:27:56,176 - lab2.py[line:9] - INFO: Thread 3: finish reading
-2021-01-08 23:27:56,177 - lab2.py[line:9] - INFO: Thread 3: finish reading
-2021-01-08 23:27:56,261 - lab2.py[line:9] - INFO: Thread 5: finish reading
-2021-01-08 23:27:56,470 - lab2.py[line:9] - INFO: Thread 5: finish reading
-2021-01-08 23:27:56,644 - lab2.py[line:9] - INFO: Thread 5: finish reading
-2021-01-08 23:27:56,721 - lab2.py[line:9] - INFO: Thread 8: finish reading
-2021-01-08 23:27:56,721 - lab2.py[line:9] - INFO: Thread 8: finish reading
-2021-01-08 23:27:56,723 - lab2.py[line:9] - INFO: Thread 8: finish reading
-2021-01-08 23:27:56,723 - lab2.py[line:9] - INFO: Thread 8: finish reading
-2021-01-08 23:27:56,731 - lab2.py[line:9] - INFO: Thread 8: finish reading
-2021-01-08 23:27:56,732 - lab2.py[line:9] - INFO: Thread 8: finish reading
-2021-01-08 23:27:56,732 - lab2.py[line:9] - INFO: Thread 8: finish reading
-2021-01-08 23:27:56,732 - lab2.py[line:9] - INFO: Thread 8: finish reading
-2021-01-08 23:27:56,733 - lab2.py[line:9] - INFO: Thread 8: finish reading
-2021-01-08 23:27:56,798 - lab2.py[line:9] - INFO: Thread 6: finish reading
-2021-01-08 23:27:56,800 - lab2.py[line:9] - INFO: Thread 6: finish reading
-2021-01-08 23:27:56,803 - lab2.py[line:9] - INFO: Thread 6: finish reading
-2021-01-08 23:27:56,804 - lab2.py[line:9] - INFO: Thread 6: finish reading
-2021-01-08 23:27:56,805 - lab2.py[line:9] - INFO: Thread 6: finish reading
-2021-01-08 23:27:56,808 - lab2.py[line:9] - INFO: Thread 6: finish reading
-2021-01-08 23:27:56,811 - lab2.py[line:9] - INFO: Thread 6: finish reading
-2021-01-08 23:27:56,812 - lab2.py[line:9] - INFO: Thread 6: finish reading
-2021-01-08 23:27:56,813 - lab2.py[line:9] - INFO: Thread 6: finish reading
-2021-01-08 23:27:56,813 - lab2.py[line:9] - INFO: Thread 6: finish reading
-2021-01-08 23:27:56,815 - lab2.py[line:9] - INFO: Thread 5: finish reading
-2021-01-08 23:27:56,818 - lab2.py[line:14] - INFO: Thread 6: finish writing
-2021-01-08 23:27:56,876 - lab2.py[line:9] - INFO: Thread 5: finish reading
-2021-01-08 23:27:56,876 - lab2.py[line:14] - INFO: Thread 5: finish writing
-2021-01-08 23:27:56,876 - lab2.py[line:9] - INFO: Thread 5: finish reading
-2021-01-08 23:27:56,877 - lab2.py[line:9] - INFO: Thread 5: finish reading
-2021-01-08 23:27:56,877 - lab2.py[line:9] - INFO: Thread 5: finish reading
-2021-01-08 23:27:56,877 - lab2.py[line:9] - INFO: Thread 5: finish reading
-2021-01-08 23:27:56,877 - lab2.py[line:9] - INFO: Thread 5: finish reading
-2021-01-08 23:27:57,039 - lab2.py[line:9] - INFO: Thread 3: finish reading
-2021-01-08 23:27:57,039 - lab2.py[line:9] - INFO: Thread 3: finish reading
-2021-01-08 23:27:57,040 - lab2.py[line:14] - INFO: Thread 8: finish writing
-2021-01-08 23:27:57,046 - lab2.py[line:14] - INFO: Thread 3: finish writing
-2021-01-08 23:27:57,179 - lab2.py[line:9] - INFO: Thread 9: finish reading
-2021-01-08 23:27:57,180 - lab2.py[line:9] - INFO: Thread 9: finish reading
-2021-01-08 23:27:57,180 - lab2.py[line:9] - INFO: Thread 9: finish reading
-2021-01-08 23:27:57,180 - lab2.py[line:9] - INFO: Thread 9: finish reading
-2021-01-08 23:27:57,181 - lab2.py[line:9] - INFO: Thread 9: finish reading
-2021-01-08 23:27:57,181 - lab2.py[line:9] - INFO: Thread 9: finish reading
-2021-01-08 23:27:57,181 - lab2.py[line:9] - INFO: Thread 9: finish reading
-2021-01-08 23:27:57,182 - lab2.py[line:9] - INFO: Thread 9: finish reading
-2021-01-08 23:27:57,339 - lab2.py[line:9] - INFO: Thread 9: finish reading
-2021-01-08 23:27:57,350 - lab2.py[line:14] - INFO: Thread 9: finish writing
+2021-01-08 23:46:06,194 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 0: start writing
+2021-01-08 23:46:06,214 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 0: finish writing
+2021-01-08 23:46:06,214 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 1: start writing
+2021-01-08 23:46:06,228 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 1: finish writing
+2021-01-08 23:46:06,228 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 2: start writing
+2021-01-08 23:46:06,262 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 2: finish writing
+2021-01-08 23:46:06,263 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 3: start writing
+2021-01-08 23:46:06,275 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 3: finish writing
+2021-01-08 23:46:06,275 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 4: start writing
+2021-01-08 23:46:06,320 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 4: finish writing
+2021-01-08 23:46:06,320 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 5: start writing
+2021-01-08 23:46:06,342 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 5: finish writing
+2021-01-08 23:46:06,343 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 6: start writing
+2021-01-08 23:46:06,366 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 6: finish writing
+2021-01-08 23:46:06,367 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 7: start writing
+2021-01-08 23:46:06,397 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 7: finish writing
+2021-01-08 23:46:06,397 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 8: start writing
+2021-01-08 23:46:06,409 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 8: finish writing
+2021-01-08 23:46:06,409 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 9: start writing
+2021-01-08 23:46:06,442 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 9: finish writing
+2021-01-08 23:46:06,442 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 0: start reading
+2021-01-08 23:46:06,457 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 0: finish reading
+2021-01-08 23:46:06,457 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 1: start reading
+2021-01-08 23:46:06,491 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 1: finish reading
+2021-01-08 23:46:06,492 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 2: start reading
+2021-01-08 23:46:06,520 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 2: finish reading
+2021-01-08 23:46:06,520 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 3: start reading
+2021-01-08 23:46:06,543 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 3: finish reading
+2021-01-08 23:46:06,544 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 4: start reading
+2021-01-08 23:46:06,581 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 4: finish reading
+2021-01-08 23:46:06,581 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 5: start reading
+2021-01-08 23:46:06,658 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 5: finish reading
+2021-01-08 23:46:06,658 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 6: start reading
+2021-01-08 23:46:06,734 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 6: finish reading
+2021-01-08 23:46:06,734 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 7: start reading
+2021-01-08 23:46:06,777 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 7: finish reading
+2021-01-08 23:46:06,777 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 8: start reading
+2021-01-08 23:46:06,839 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 8: finish reading
+2021-01-08 23:46:06,839 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 9: start reading
+2021-01-08 23:46:06,869 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 9: finish reading
+2021-01-08 23:46:06,889 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 0: start writing
+2021-01-08 23:46:06,889 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 0: start reading
+2021-01-08 23:46:06,890 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 0: start reading
+2021-01-08 23:46:06,890 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 0: start reading
+2021-01-08 23:46:06,890 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 0: start reading
+2021-01-08 23:46:06,891 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 0: start reading
+2021-01-08 23:46:06,891 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 0: start reading
+2021-01-08 23:46:06,891 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 0: start reading
+2021-01-08 23:46:06,891 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 0: start reading
+2021-01-08 23:46:06,892 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 0: start reading
+2021-01-08 23:46:06,892 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 0: start reading
+2021-01-08 23:46:06,893 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 1: start writing
+2021-01-08 23:46:06,898 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 1: start reading
+2021-01-08 23:46:06,905 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 1: start reading
+2021-01-08 23:46:06,921 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 1: start reading
+2021-01-08 23:46:06,921 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 1: start reading
+2021-01-08 23:46:06,922 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 1: start reading
+2021-01-08 23:46:06,922 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 1: start reading
+2021-01-08 23:46:06,923 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 1: start reading
+2021-01-08 23:46:06,948 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 1: start reading
+2021-01-08 23:46:06,949 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 1: start reading
+2021-01-08 23:46:06,951 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 1: start reading
+2021-01-08 23:46:06,956 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 2: start writing
+2021-01-08 23:46:06,987 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 2: start reading
+2021-01-08 23:46:06,991 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 2: start reading
+2021-01-08 23:46:06,997 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 2: start reading
+2021-01-08 23:46:06,998 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 0: finish reading
+2021-01-08 23:46:07,002 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 0: finish reading
+2021-01-08 23:46:07,002 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 0: finish reading
+2021-01-08 23:46:07,007 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 2: start reading
+2021-01-08 23:46:07,008 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 2: start reading
+2021-01-08 23:46:07,010 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 0: finish writing
+2021-01-08 23:46:07,014 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 0: finish reading
+2021-01-08 23:46:07,015 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 1: finish reading
+2021-01-08 23:46:07,017 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 0: finish reading
+2021-01-08 23:46:07,017 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 0: finish reading
+2021-01-08 23:46:07,048 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 2: start reading
+2021-01-08 23:46:07,050 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 1: finish reading
+2021-01-08 23:46:07,051 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 0: finish reading
+2021-01-08 23:46:07,052 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 2: start reading
+2021-01-08 23:46:07,053 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 2: start reading
+2021-01-08 23:46:07,055 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 0: finish reading
+2021-01-08 23:46:07,058 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 2: start reading
+2021-01-08 23:46:07,091 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 2: start reading
+2021-01-08 23:46:07,091 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 3: start writing
+2021-01-08 23:46:07,094 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 1: finish writing
+2021-01-08 23:46:07,096 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 0: finish reading
+2021-01-08 23:46:07,097 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 3: start reading
+2021-01-08 23:46:07,097 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 0: finish reading
+2021-01-08 23:46:07,099 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 3: start reading
+2021-01-08 23:46:07,130 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 3: start reading
+2021-01-08 23:46:07,134 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 3: start reading
+2021-01-08 23:46:07,134 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 1: finish reading
+2021-01-08 23:46:07,135 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 1: finish reading
+2021-01-08 23:46:07,136 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 1: finish reading
+2021-01-08 23:46:07,137 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 1: finish reading
+2021-01-08 23:46:07,137 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 1: finish reading
+2021-01-08 23:46:07,138 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 2: finish writing
+2021-01-08 23:46:07,142 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 1: finish reading
+2021-01-08 23:46:07,143 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 3: start reading
+2021-01-08 23:46:07,144 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 3: start reading
+2021-01-08 23:46:07,147 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 1: finish reading
+2021-01-08 23:46:07,150 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 2: finish reading
+2021-01-08 23:46:07,151 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 2: finish reading
+2021-01-08 23:46:07,151 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 1: finish reading
+2021-01-08 23:46:07,151 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 2: finish reading
+2021-01-08 23:46:07,155 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 3: start reading
+2021-01-08 23:46:07,193 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 3: start reading
+2021-01-08 23:46:07,248 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 3: start reading
+2021-01-08 23:46:07,249 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 3: start reading
+2021-01-08 23:46:07,252 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 2: finish reading
+2021-01-08 23:46:07,252 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 2: finish reading
+2021-01-08 23:46:07,253 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 4: start writing
+2021-01-08 23:46:07,254 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 4: start reading
+2021-01-08 23:46:07,255 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 2: finish reading
+2021-01-08 23:46:07,256 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 4: start reading
+2021-01-08 23:46:07,259 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 2: finish reading
+2021-01-08 23:46:07,267 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 3: finish reading
+2021-01-08 23:46:07,269 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 2: finish reading
+2021-01-08 23:46:07,296 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 4: start reading
+2021-01-08 23:46:07,297 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 4: start reading
+2021-01-08 23:46:07,298 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 4: start reading
+2021-01-08 23:46:07,299 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 4: start reading
+2021-01-08 23:46:07,300 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 4: start reading
+2021-01-08 23:46:07,301 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 4: start reading
+2021-01-08 23:46:07,304 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 4: start reading
+2021-01-08 23:46:07,314 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 3: finish reading
+2021-01-08 23:46:07,316 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 3: finish writing
+2021-01-08 23:46:07,317 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 3: finish reading
+2021-01-08 23:46:07,318 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 3: finish reading
+2021-01-08 23:46:07,319 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 3: finish reading
+2021-01-08 23:46:07,319 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 2: finish reading
+2021-01-08 23:46:07,320 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 3: finish reading
+2021-01-08 23:46:07,320 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 3: finish reading
+2021-01-08 23:46:07,320 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 2: finish reading
+2021-01-08 23:46:07,323 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 4: start reading
+2021-01-08 23:46:07,327 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 5: start writing
+2021-01-08 23:46:07,328 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 5: start reading
+2021-01-08 23:46:07,329 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 5: start reading
+2021-01-08 23:46:07,330 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 5: start reading
+2021-01-08 23:46:07,337 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 3: finish reading
+2021-01-08 23:46:07,357 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 5: start reading
+2021-01-08 23:46:07,357 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 5: start reading
+2021-01-08 23:46:07,358 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 5: start reading
+2021-01-08 23:46:07,359 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 4: finish reading
+2021-01-08 23:46:11,225 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 5: start reading
+2021-01-08 23:46:11,228 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 5: start reading
+2021-01-08 23:46:11,229 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 5: start reading
+2021-01-08 23:46:11,230 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 5: start reading
+2021-01-08 23:46:11,231 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 4: finish reading
+2021-01-08 23:46:11,233 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 3: finish reading
+2021-01-08 23:46:11,234 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 6: start writing
+2021-01-08 23:46:11,234 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 4: finish reading
+2021-01-08 23:46:11,236 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 4: finish writing
+2021-01-08 23:46:11,236 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 4: finish reading
+2021-01-08 23:46:11,236 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 3: finish reading
+2021-01-08 23:46:11,236 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 4: finish reading
+2021-01-08 23:46:11,237 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 6: start reading
+2021-01-08 23:46:11,237 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 4: finish reading
+2021-01-08 23:46:11,239 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 5: finish reading
+2021-01-08 23:46:11,239 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 6: start reading
+2021-01-08 23:46:11,240 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 6: start reading
+2021-01-08 23:46:11,241 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 4: finish reading
+2021-01-08 23:46:11,241 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 6: start reading
+2021-01-08 23:46:11,241 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 4: finish reading
+2021-01-08 23:46:11,241 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 4: finish reading
+2021-01-08 23:46:11,241 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 5: finish reading
+2021-01-08 23:46:11,241 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 6: start reading
+2021-01-08 23:46:11,242 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 6: start reading
+2021-01-08 23:46:11,242 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 4: finish reading
+2021-01-08 23:46:11,244 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 6: start reading
+2021-01-08 23:46:11,246 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 5: finish reading
+2021-01-08 23:46:11,246 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 6: start reading
+2021-01-08 23:46:11,247 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 5: finish writing
+2021-01-08 23:46:11,248 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 6: start reading
+2021-01-08 23:46:11,249 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 6: start reading
+2021-01-08 23:46:11,249 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 7: start writing
+2021-01-08 23:46:11,250 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 7: start reading
+2021-01-08 23:46:11,251 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 7: start reading
+2021-01-08 23:46:11,253 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 7: start reading
+2021-01-08 23:46:11,255 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 7: start reading
+2021-01-08 23:46:11,256 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 7: start reading
+2021-01-08 23:46:11,256 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 7: start reading
+2021-01-08 23:46:11,258 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 7: start reading
+2021-01-08 23:46:11,259 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 7: start reading
+2021-01-08 23:46:11,259 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 7: start reading
+2021-01-08 23:46:11,260 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 7: start reading
+2021-01-08 23:46:11,262 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 8: start writing
+2021-01-08 23:46:11,263 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 8: start reading
+2021-01-08 23:46:11,263 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 8: start reading
+2021-01-08 23:46:11,264 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 8: start reading
+2021-01-08 23:46:11,266 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 8: start reading
+2021-01-08 23:46:11,268 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 8: start reading
+2021-01-08 23:46:11,270 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 8: start reading
+2021-01-08 23:46:11,270 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 8: start reading
+2021-01-08 23:46:11,271 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 8: start reading
+2021-01-08 23:46:11,272 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 8: start reading
+2021-01-08 23:46:11,274 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 8: start reading
+2021-01-08 23:46:11,277 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:12] - INFO: Thread 9: start writing
+2021-01-08 23:46:11,278 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 9: start reading
+2021-01-08 23:46:11,279 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 9: start reading
+2021-01-08 23:46:11,280 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 9: start reading
+2021-01-08 23:46:11,281 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 9: start reading
+2021-01-08 23:46:11,281 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 9: start reading
+2021-01-08 23:46:11,281 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 9: start reading
+2021-01-08 23:46:11,282 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 9: start reading
+2021-01-08 23:46:11,283 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 9: start reading
+2021-01-08 23:46:11,284 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 9: start reading
+2021-01-08 23:46:11,284 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:7] - INFO: Thread 9: start reading
+2021-01-08 23:46:12,701 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 5: finish reading
+2021-01-08 23:46:14,024 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 5: finish reading
+2021-01-08 23:46:14,483 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 5: finish reading
+2021-01-08 23:46:14,634 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 5: finish reading
+2021-01-08 23:46:14,775 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 5: finish reading
+2021-01-08 23:46:14,918 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 5: finish reading
+2021-01-08 23:46:15,059 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 5: finish reading
+2021-01-08 23:46:15,205 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 6: finish writing
+2021-01-08 23:46:15,354 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 6: finish reading
+2021-01-08 23:46:15,488 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 6: finish reading
+2021-01-08 23:46:15,637 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 6: finish reading
+2021-01-08 23:46:15,777 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 6: finish reading
+2021-01-08 23:46:15,915 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 6: finish reading
+2021-01-08 23:46:16,787 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 6: finish reading
+2021-01-08 23:46:16,951 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 6: finish reading
+2021-01-08 23:46:17,268 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 6: finish reading
+2021-01-08 23:46:17,430 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 6: finish reading
+2021-01-08 23:46:17,575 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 7: finish writing
+2021-01-08 23:46:17,720 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 6: finish reading
+2021-01-08 23:46:17,872 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 7: finish reading
+2021-01-08 23:46:18,029 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 7: finish reading
+2021-01-08 23:46:18,172 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 7: finish reading
+2021-01-08 23:46:18,322 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 7: finish reading
+2021-01-08 23:46:19,744 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 7: finish reading
+2021-01-08 23:46:19,885 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 7: finish reading
+2021-01-08 23:46:20,026 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 7: finish reading
+2021-01-08 23:46:20,176 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 7: finish reading
+2021-01-08 23:46:20,334 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 7: finish reading
+2021-01-08 23:46:20,472 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 8: finish writing
+2021-01-08 23:46:20,622 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 7: finish reading
+2021-01-08 23:46:20,761 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 8: finish reading
+2021-01-08 23:46:20,911 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 8: finish reading
+2021-01-08 23:46:21,054 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 8: finish reading
+2021-01-08 23:46:21,212 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 8: finish reading
+2021-01-08 23:46:21,357 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 8: finish reading
+2021-01-08 23:46:21,513 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 8: finish reading
+2021-01-08 23:46:21,663 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 8: finish reading
+2021-01-08 23:46:21,820 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 8: finish reading
+2021-01-08 23:46:21,957 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 8: finish reading
+2021-01-08 23:46:24,784 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 8: finish reading
+2021-01-08 23:46:25,060 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 9: finish reading
+2021-01-08 23:46:25,274 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 9: finish reading
+2021-01-08 23:46:25,486 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 9: finish reading
+2021-01-08 23:46:25,645 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 9: finish reading
+2021-01-08 23:46:25,793 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:14] - INFO: Thread 9: finish writing
+2021-01-08 23:46:25,937 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 9: finish reading
+2021-01-08 23:46:28,071 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 9: finish reading
+2021-01-08 23:46:28,245 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 9: finish reading
+2021-01-08 23:46:28,395 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 9: finish reading
+2021-01-08 23:46:28,545 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 9: finish reading
+2021-01-08 23:46:28,694 - C:\Users\Yang Ruixiao\Desktop\LFS\tests\concurrency.py[line:9] - INFO: Thread 9: finish reading
