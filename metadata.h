@@ -9,16 +9,19 @@
 #define MAX_FILENAME 20
 #define MAX_FILE_NUM 20
 #define MAX_BUFFER_SIZE 102400
-#define BLOCK_PER_INDIRECTION 255
+#define BLOCK_PER_INDIRECTION 250
 #define MODE_DIR_777 16895
 
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/select.h>
+#include <stdlib.h>
+#include <pthread.h>
 
 struct INode {
     int id; // inode id
-    size_t size; // file size
+    off_t size; // file size
     int block_num; // where inode is
     mode_t mode; // type and permission
 	nlink_t nlink; // hard link number
@@ -41,16 +44,27 @@ struct Directory {
 
 struct SuperBlock {
     int inodemap[INODE_MAP_SIZE];
+    pthread_rwlock_t lockmap[INODE_MAP_SIZE];
+    int nextblock;
+};
+
+#define CACHE_SIZE 2048
+struct node
+{
+	int num;
+	char block[BLOCK_SIZE];
 };
 
 struct LFS {
     char filename[MAX_FILENAME];
     struct SuperBlock superblock;
     int nextblock;
-    int transaction;
-    int buffersize;
-    int filesize;
-    unsigned char buffer[MAX_BUFFER_SIZE];
+    pthread_mutex_t lock; // lock for nextblock
+    int cleaning;
+    pthread_mutex_t dl;
+	int nt;
+	int mv;
+	struct node*cache;
 };
 
 struct Indirection {
@@ -61,42 +75,36 @@ struct Indirection {
 extern struct LFS*lfs;
 
 // initialization functions
-int yrx_init_lfs(struct LFS** lfs);
+int yrx_init_lfs(struct LFS** lfs, int reboot);
 int yrx_init_inode(struct INode* node, int isdir);
 int yrx_init_indir(struct Indirection* indir);
 
-// direct I/O, Basement of the filesystem
-int yrx_readblockfromdisk(struct LFS* lfs, int block_num, void* block, int size, int time);
-int yrx_writeblocktodisk(struct LFS* lfs, int block_num, const void* block, int size, int time);
-int yrx_readblockfrombuffer(struct LFS* lfs, int block_num, void* block, int size, int time);
-int yrx_writeblocktobuffer(struct LFS* lfs, const void* block, int size);
-int yrx_writebuffertodisk(struct LFS* lfs);
+// direct I/O, Base of the filesystem
+int yrx_readdisk(struct LFS* lfs, int block_num, void* block, int size);
+int yrx_writedisk(struct LFS* lfs, int block_num, const void* block, int size);
 
 // middle level I/O
-int yrx_readblock(struct LFS* lfs, int tid, int block_num, void* block, int size, int time);
-int yrx_writeblock(struct LFS* lfs, int tid, int block_num, const void* block, int size, int time);
-int yrx_readinode(struct LFS* lfs, int tid, int id, struct INode* node);
-int yrx_writeinode(struct LFS* lfs, int tid, struct INode* node);
-int yrx_readdir(struct LFS* lfs, int tid, int blcok_num, struct Directory* dir);
-int yrx_writedir(struct LFS* lfs, int tid, struct Directory* dir);
+int yrx_readinode(struct LFS* lfs, int id, struct INode* node);
+int yrx_writeinode(struct LFS* lfs, struct INode* node);
+int yrx_readdir(struct LFS* lfs, int block_num, struct Directory* dir);
+int yrx_writedir(struct LFS* lfs, struct Directory* dir);
 
 // high level I/O
-int yrx_readinodefrompath(struct LFS* lfs, int tid, const char* path, struct INode* node, uid_t uid);// 0->not found, 1->succ, 2->no permission
-int yrx_readdirectoryfrompath(struct LFS* lfs, int tid, const char* path, struct Directory* directory);
-int yrx_readfilefrominode(struct LFS* lfs, int tid, char* file, struct INode* node, size_t size, off_t offset); 
-int yrx_readdirfrominode(struct LFS* lfs, int tid, struct INode* node, struct Directory* dir);
-int yrx_readindirectionblock(struct LFS* lfs, int tid, int addr, struct Indirection* indir);
-int yrx_renamefile(struct LFS* lfs, int tid, struct INode* fnode, const char* originname, const char* newname);
-int yrx_linkfile(struct LFS* lfs, int tid, struct INode* fnode, const char* filename, struct INode* node);
-int yrx_unlinkfile(struct LFS* lfs, int tid, struct INode* fnode, const char* filename);
-int yrx_createinode(struct LFS* lfs, int tid, struct INode* node, mode_t mode, uid_t uid, gid_t gid);
-int yrx_createdir(struct LFS* lfs, int tid, struct INode* fnode, const char* filename, mode_t mode, uid_t uid, gid_t gid);
-int yrx_deletedir(struct LFS* lfs, int tid, struct INode* fnode, const char* filename);
-int yrx_writefile(struct LFS* lfs, int tid, const char* file, struct INode* node, size_t size, off_t offset);
+int yrx_readinodefrompath(struct LFS* lfs, const char* path, struct INode* node, uid_t uid);// 0->not found, 1->succ, 2->no permission
+int yrx_readfilefrominode(struct LFS* lfs, char* file, struct INode* node, size_t size, off_t offset); 
+int yrx_readdirfrominode(struct LFS* lfs, struct INode* node, struct Directory* dir);
+int yrx_readindirectionblock(struct LFS* lfs, int addr, struct Indirection* indir);
+int yrx_renamefile(struct LFS* lfs, struct INode* fnode, const char* originname, const char* newname);
+int yrx_linkfile(struct LFS* lfs, struct INode* fnode, const char* filename, struct INode* node);
+int yrx_unlinkfile(struct LFS* lfs, struct INode* fnode, const char* filename);
+int yrx_createinode(struct LFS* lfs, struct INode* node, mode_t mode, uid_t uid, gid_t gid);
+int yrx_createdir(struct LFS* lfs, struct INode* fnode, const char* filename, mode_t mode, uid_t uid, gid_t gid);
+int yrx_deletedir(struct LFS* lfs, struct INode* fnode, const char* filename);
+int yrx_writefile(struct LFS* lfs, const char* file, struct INode* node, size_t size, off_t offset);
 
-// transaction
-int yrx_begintransaction(struct LFS* lfs);//transaction tid 0:ERROR
-int yrx_endtransaction(struct LFS* lfs,int tid);//0:ERROR 1:Y
+// clean up
+int yrx_begintransaction(struct LFS* lfs);
+int yrx_endtransaction(struct LFS* lfs);
 
 // permission check
 int yrx_check_access(struct INode* node, uid_t uid);
@@ -107,6 +115,9 @@ int INodetoString(FILE *file, struct INode* node);
 int SuperBlocktoString(FILE *file, struct SuperBlock* superblock);
 int block_dump(struct LFS* lfs);
 
-// clean
 int clean();
+
+void log_msg2(const char*const format,...);
+int fzw_sync(struct LFS*lfs);
+
 #endif

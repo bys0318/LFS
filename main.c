@@ -29,6 +29,16 @@ void log_msg(const char*const format,...)
 	vfprintf(LFS_DATA->logfile,format,ap);
 	return;
 }
+void log_msg2(const char*const format,...)
+{
+	FILE*log;
+	va_list ap;
+	va_start(ap,format);
+	log=fopen("/home/bys/log","a");
+	vfprintf(log,format,ap);
+	fclose(log);
+	return;
+}
 // Get the full path (full_path = root + path)
 static void get_full_path(char full_path[PATH_MAX], const char *path){
   strcpy(full_path, LFS_DATA->rootdir);
@@ -45,12 +55,12 @@ int lfs_getattr(const char*path,struct stat*stbuf,struct fuse_file_info*fi)
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("GETATTR, <%s>, <0x%08x>, <0x%08x>\n", full_path, stbuf, fi);
-	int tid;
+	block_dump(lfs);
 	int ret;
 	struct INode node;
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,path,&node,fuse_get_context()->uid);
-	yrx_endtransaction(lfs,tid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,path,&node,fuse_get_context()->uid);
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:log_msg("0\n");
@@ -83,20 +93,19 @@ int lfs_chmod(const char*path,mode_t mode,struct fuse_file_info*fi)
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("CHMOD, <%s>, <%d>, <0x%08x>\n", full_path, mode, fi);
-	int tid;
 	int ret;
 	struct INode node;
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,path,&node,fuse_get_context()->uid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,path,&node,fuse_get_context()->uid);
 	if(ret==1)
 		if(chmod_check(&node,fuse_get_context()->uid,mode))
 		{
 			node.mode=mode;
-			yrx_writeinode(lfs,tid,&node);
+			yrx_writeinode(lfs,&node);
 		}
 		else
 			ret=2;
-	yrx_endtransaction(lfs,tid);
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:
@@ -133,11 +142,10 @@ int lfs_chown(const char*path,uid_t uid,gid_t gid,struct fuse_file_info*fi)
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("CHOWN, <%s>, <%d>, <%d>, <0x%08x>\n", full_path, uid, gid, fi);
-	int tid;
 	int ret;
 	struct INode node;
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,path,&node,fuse_get_context()->uid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,path,&node,fuse_get_context()->uid);
 	if(ret==1)
 		if(chown_check(&node,fuse_get_context()->uid,uid,gid))
 		{
@@ -145,11 +153,11 @@ int lfs_chown(const char*path,uid_t uid,gid_t gid,struct fuse_file_info*fi)
 				node.uid=uid;
 			if(gid!=-1)
 				node.gid=gid;
-			yrx_writeinode(lfs,tid,&node);
+			yrx_writeinode(lfs,&node);
 		}
 		else
 			ret=2;
-	yrx_endtransaction(lfs,tid);
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:
@@ -196,7 +204,6 @@ int lfs_create(const char*path,mode_t mode,struct fuse_file_info*fi)
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("CREATE, <%s>, <%d>, <0x%08x>\n", full_path, mode, fi);
-	int tid;
 	int ret;
 	struct INode node;
 	struct INode fnode;
@@ -205,17 +212,17 @@ int lfs_create(const char*path,mode_t mode,struct fuse_file_info*fi)
 	memset(pd,0,PATH_MAX);
 	memset(pn,0,PATH_MAX);
 	pdn(path,pd,pn);
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,pd,&fnode,fuse_get_context()->uid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,pd,&fnode,fuse_get_context()->uid);
 	if(ret==1)
 		if(create_check(&fnode,fuse_get_context()->uid))
 		{
-			yrx_createinode(lfs,tid,&node,mode,fuse_get_context()->uid,fuse_get_context()->gid);
-			yrx_linkfile(lfs,tid,&fnode,pn,&node);
+			yrx_createinode(lfs,&node,mode,fuse_get_context()->uid,fuse_get_context()->gid);
+			yrx_linkfile(lfs,&fnode,pn,&node);
 		}
 		else
 			ret=2;
-	yrx_endtransaction(lfs,tid);
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:
@@ -236,7 +243,6 @@ int lfs_rename(const char*from,const char*to,unsigned int flags)
 	char full_path_to[PATH_MAX];
 	get_full_path(full_path_to, to);
 	log_msg("RENAME, <%s>, <%s>, <%d>\n", full_path_from, full_path_to, flags);
-	int tid;
 	int ret;
 	struct INode fnode1;
 	struct INode fnode2;
@@ -251,23 +257,23 @@ int lfs_rename(const char*from,const char*to,unsigned int flags)
 	memset(pn2,0,PATH_MAX);
 	pdn(from,pd1,pn1);
 	pdn(to,pd2,pn2);
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,pd1,&fnode1,fuse_get_context()->uid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,pd1,&fnode1,fuse_get_context()->uid);
 	if(ret==1)
 	{
-		ret=yrx_readinodefrompath(lfs,tid,pd2,&fnode2,fuse_get_context()->uid);
+		ret=yrx_readinodefrompath(lfs,pd2,&fnode2,fuse_get_context()->uid);
 		if(ret==1)
 			if(create_check(&fnode1,fuse_get_context()->uid)&&create_check(&fnode2,fuse_get_context()->uid))
 			{
-				log_msg("----%d\n",yrx_readinodefrompath(lfs,tid,from,&node,fuse_get_context()->uid));
-				yrx_linkfile(lfs,tid,&fnode2,pn2,&node);
-				yrx_readinodefrompath(lfs,tid,pd1,&fnode1,fuse_get_context()->uid);
-				yrx_unlinkfile(lfs,tid,&fnode1,pn1);log_msg("+++++++++++++++++++++++++++++++++++%s %s\n",pd1,pd2);
+				log_msg("----%d\n",yrx_readinodefrompath(lfs,from,&node,fuse_get_context()->uid));
+				yrx_linkfile(lfs,&fnode2,pn2,&node);
+				yrx_readinodefrompath(lfs,pd1,&fnode1,fuse_get_context()->uid);
+				yrx_unlinkfile(lfs,&fnode1,pn1);log_msg("+++++++++++++++++++++++++++++++++++%s %s\n",pd1,pd2);
 			}
 			else
 				ret=2;
 	}
-	yrx_endtransaction(lfs,tid);
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:
@@ -328,14 +334,13 @@ int lfs_open(const char*path,struct fuse_file_info*fi)
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("OPEN, <%s>, <0x%08x>\n", full_path, fi);
-	int tid;
 	int ret;
 	struct INode node;
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,path,&node,fuse_get_context()->uid);
-	yrx_endtransaction(lfs,tid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,path,&node,fuse_get_context()->uid);
 	if((ret==1)&&(!open_check(&node,fuse_get_context()->uid,fi->flags)))
 		ret=2;
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:
@@ -361,19 +366,18 @@ int lfs_read(const char*path,char*buf,size_t size,off_t offset,struct fuse_file_
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("READ, <%s>, <0x%08x>, <%d>, <%lld>, <0x%08x>\n", full_path, buf, size, offset, fi);
-	int tid;
 	int ret;
 	struct INode node;
-	tid=yrx_begintransaction(lfs);
-	yrx_readinodefrompath(lfs,tid,path,&node,fuse_get_context()->uid);
+	yrx_begintransaction(lfs);
+	yrx_readinodefrompath(lfs,path,&node,fuse_get_context()->uid);
 	if(offset<node.size)
 	{
 		ret=min(node.size-offset,size);
-		yrx_readfilefrominode(lfs,tid,buf,&node,min(node.size-offset,size),offset);
+		yrx_readfilefrominode(lfs,buf,&node,min(node.size-offset,size),offset);
 	}
 	else
 		ret=0;
-	yrx_endtransaction(lfs,tid);
+	yrx_endtransaction(lfs);
 	return ret;
 }
 //OK!!!
@@ -382,12 +386,11 @@ int lfs_write(const char*path,const char*buf,size_t size,off_t offset,struct fus
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("WRITE, <%s>, <0x%08x>, <%d>, <%lld>, <0x%08x>\n", full_path, buf, size, offset, fi);
-	int tid;
 	struct INode node;
-	tid=yrx_begintransaction(lfs);
-	yrx_readinodefrompath(lfs,tid,path,&node,fuse_get_context()->uid);
-	yrx_writefile(lfs,tid,buf,&node,size,offset);
-	yrx_endtransaction(lfs,tid);
+	yrx_begintransaction(lfs);
+	yrx_readinodefrompath(lfs,path,&node,fuse_get_context()->uid);
+	yrx_writefile(lfs,buf,&node,size,offset);
+	yrx_endtransaction(lfs);
 	return size;
 }
 //OK!!!
@@ -408,7 +411,6 @@ int lfs_link(const char*from,const char*to)
 	char full_path_to[PATH_MAX];
 	get_full_path(full_path_to, to);
 	log_msg("LINK, <%s>, <%s>\n", full_path_from, full_path_to);
-	int tid;
 	int ret;
 	struct INode node;
 	struct INode fnode;
@@ -417,18 +419,18 @@ int lfs_link(const char*from,const char*to)
 	memset(pd,0,PATH_MAX);
 	memset(pn,0,PATH_MAX);
 	pdn(to,pd,pn);
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,from,&node,fuse_get_context()->uid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,from,&node,fuse_get_context()->uid);
 	if(ret==1)
 	{
-		ret=yrx_readinodefrompath(lfs,tid,pd,&fnode,fuse_get_context()->uid);
+		ret=yrx_readinodefrompath(lfs,pd,&fnode,fuse_get_context()->uid);
 		if(ret==1)
 			if(create_check(&fnode,fuse_get_context()->uid)&&link_check(&node,fuse_get_context()->uid))
-				yrx_linkfile(lfs,tid,&fnode,pn,&node);
+				yrx_linkfile(lfs,&fnode,pn,&node);
 			else
 				ret=2;
 	}
-	yrx_endtransaction(lfs,tid);
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:
@@ -447,7 +449,6 @@ int lfs_unlink(const char*path)
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("UNLINK, <%s>\n", full_path);
-	int tid;
 	int ret;
 	struct INode fnode;
 	char pd[PATH_MAX];
@@ -455,14 +456,14 @@ int lfs_unlink(const char*path)
 	memset(pd,0,PATH_MAX);
 	memset(pn,0,PATH_MAX);
 	pdn(path,pd,pn);
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,pd,&fnode,fuse_get_context()->uid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,pd,&fnode,fuse_get_context()->uid);
 	if(ret==1)
 		if(create_check(&fnode,fuse_get_context()->uid))
-			yrx_unlinkfile(lfs,tid,&fnode,pn);
+			yrx_unlinkfile(lfs,&fnode,pn);
 		else
 			ret=2;
-	yrx_endtransaction(lfs,tid);
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:
@@ -501,14 +502,13 @@ int lfs_opendir(const char*path,struct fuse_file_info*fi)
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("OPENDIR, <%s>, <0x%08x>\n", full_path, fi);
-	int tid;
 	int ret;
 	struct INode node;
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,path,&node,fuse_get_context()->uid);
-	yrx_endtransaction(lfs,tid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,path,&node,fuse_get_context()->uid);
 	if((ret==1)&&(!opendir_check(&node,fuse_get_context()->uid)))
 		ret=2;
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:
@@ -527,7 +527,6 @@ int lfs_mkdir(const char*path,mode_t mode)
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("MKDIR, <%s>, <%d>\n", full_path, mode);
-	int tid;
 	int ret;
 	struct INode fnode;
 	char pd[PATH_MAX];
@@ -535,14 +534,14 @@ int lfs_mkdir(const char*path,mode_t mode)
 	memset(pd,0,PATH_MAX);
 	memset(pn,0,PATH_MAX);
 	pdn(path,pd,pn);
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,pd,&fnode,fuse_get_context()->uid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,pd,&fnode,fuse_get_context()->uid);
 	if(ret==1)
 		if(create_check(&fnode,fuse_get_context()->uid))
-			yrx_createdir(lfs,tid,&fnode,pn,S_IFDIR|mode,fuse_get_context()->uid,fuse_get_context()->gid);
+			yrx_createdir(lfs,&fnode,pn,S_IFDIR|mode,fuse_get_context()->uid,fuse_get_context()->gid);
 		else
 			ret=2;
-	yrx_endtransaction(lfs,tid);
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:
@@ -571,17 +570,16 @@ int lfs_readdir(const char*path,void*buf,fuse_fill_dir_t filler,off_t offset,str
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("READDIR, <%s>, <0x%08x>, <0x%08x>, <%lld>, <0x%08x>, \n", full_path, buf, filler, offset, fi);
-	int tid;
 	int ret;
 	int f1;
 	struct INode node;
 	struct Directory dir;
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,path,&node,fuse_get_context()->uid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,path,&node,fuse_get_context()->uid);
 	if(ret==1)
 		if(readdir_check(&node,fuse_get_context()->uid))
 		{
-			yrx_readdirfrominode(lfs,tid,&node,&dir);
+			yrx_readdirfrominode(lfs,&node,&dir);
 			for(f1=0;f1<MAX_FILE_NUM;f1++)
 			{
 				if(dir.id[f1]!=-1)
@@ -592,7 +590,7 @@ int lfs_readdir(const char*path,void*buf,fuse_fill_dir_t filler,off_t offset,str
 		}
 		else
 			ret=2;
-	yrx_endtransaction(lfs,tid);
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:
@@ -619,7 +617,6 @@ int lfs_rmdir(const char*path)
 	char full_path[PATH_MAX];
 	get_full_path(full_path, path);
 	log_msg("RMDIR, <%s>\n", full_path);
-	int tid;
 	int ret;
 	struct INode fnode;
 	char pd[PATH_MAX];
@@ -627,14 +624,14 @@ int lfs_rmdir(const char*path)
 	memset(pd,0,PATH_MAX);
 	memset(pn,0,PATH_MAX);
 	pdn(path,pd,pn);
-	tid=yrx_begintransaction(lfs);
-	ret=yrx_readinodefrompath(lfs,tid,pd,&fnode,fuse_get_context()->uid);
+	yrx_begintransaction(lfs);
+	ret=yrx_readinodefrompath(lfs,pd,&fnode,fuse_get_context()->uid);
 	if(ret==1)
 		if(create_check(&fnode,fuse_get_context()->uid))
-			yrx_deletedir(lfs,tid,&fnode,pn);
+			yrx_deletedir(lfs,&fnode,pn);
 		else
 			ret=2;
-	yrx_endtransaction(lfs,tid);
+	yrx_endtransaction(lfs);
 	switch(ret)
 	{
 		case 0:
@@ -684,6 +681,7 @@ int main(int argc,char**argv)
 	ourData=malloc(sizeof(struct lfs_state));
 	ourData->rootdir=realpath(argv[argc-1],NULL);
 	ourData->logfile=open_log();
-	yrx_init_lfs(&lfs);
+	int reboot = 0;
+	yrx_init_lfs(&lfs, reboot);
 	return fuse_main(argc,argv,&lfs_op,ourData);
 }

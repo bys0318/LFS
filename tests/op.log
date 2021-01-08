@@ -1,0 +1,280 @@
+INIT, <0x1f35d82c>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc70>
+GETATTR, </home/bys/桌面/41/tests/mount/.xdg-volume-info>, <0xb6972c80>, <0x00000000>
+0
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb576cc50>, <0x00000000>
+1
+GETATTR, </home/bys/桌面/41/tests/mount/autorun.inf>, <0xb606fc80>, <0x00000000>
+0
+GETATTR, </home/bys/桌面/41/tests/mount/.Trash>, <0xb6972c80>, <0x00000000>
+0
+GETATTR, </home/bys/桌面/41/tests/mount/.Trash-1000>, <0xb6972c80>, <0x00000000>
+0
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa8000dd0>, <0xb6d9e310>, <0>, <0xb606fc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb6972c50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xac001040>, <0xb6d9e310>, <0>, <0xb576cc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb606fc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xac0011e0>, <0xb6d9e310>, <0>, <0xb6972c00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb6972c50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa8002470>, <0xb6d9e310>, <0>, <0xb606fc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb576cc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xb0002620>, <0xb6d9e310>, <0>, <0xb6972c00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb606fc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xb00026a0>, <0xb6d9e310>, <0>, <0xb6972c00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb576cc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xb0002720>, <0xb6d9e310>, <0>, <0xb606fc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb6972c50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xac001380>, <0xb6d9e310>, <0>, <0xb576cc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb6972c50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xac001400>, <0xb6d9e310>, <0>, <0xb576cc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb606fc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xb00027a0>, <0xb6d9e310>, <0>, <0xb6972c00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb576cc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa80025c0>, <0xb6d9e310>, <0>, <0xb606fc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb6972c50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xac001480>, <0xb6d9e310>, <0>, <0xb606fc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb576cc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xac001500>, <0xb6d9e310>, <0>, <0xb6972c00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb6972c50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa80028c0>, <0xb6d9e310>, <0>, <0xb6972c00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb6972c50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa0000dd0>, <0xb6d9e310>, <0>, <0xb606fc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb576cc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xac001580>, <0xb6d9e310>, <0>, <0xb576cc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb576cc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xac001600>, <0xb6d9e310>, <0>, <0xb576cc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb606fc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa8002a10>, <0xb6d9e310>, <0>, <0xb606fc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb606fc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa8002a90>, <0xb6d9e310>, <0>, <0xb606fc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb576cc50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa8002be0>, <0xb6d9e310>, <0>, <0xb576cc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa00011e0>, <0xb6d9e310>, <0>, <0xb4e69c00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa0001590>, <0xb6d9e310>, <0>, <0xb606fc00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xa7ffec50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa0001610>, <0xb6d9e310>, <0>, <0xb6972c00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xa7ffec50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa0001690>, <0xb6d9e310>, <0>, <0xb6972c00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xa7ffec50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa0001610>, <0xb6d9e310>, <0>, <0xb6972c00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c80>
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb6972c70>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xa7ffec50>, <0x00000000>
+1
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xb00028f0>, <0xb6d9e310>, <0>, <0xb6972c00>, 
+[name].
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc80>
+GETATTR, </home/bys/桌面/41/tests/mount/autorun.inf>, <0xb606fc80>, <0x00000000>
+0
+GETATTR, </home/bys/桌面/41/tests/mount/a.txt>, <0xa7ffec80>, <0x00000000>
+0
+GETATTR, </home/bys/桌面/41/tests/mount/a.txt>, <0xb6972c80>, <0x00000000>
+0
+GETATTR, </home/bys/桌面/41/tests/mount/a.txt>, <0xb4e69c80>, <0x00000000>
+0
+CREATE, </home/bys/桌面/41/tests/mount/a.txt>, <33204>, <0xb606fd30>
+GETATTR, </home/bys/桌面/41/tests/mount/a.txt>, <0xb606fc40>, <0xb606fd30>
+1
+GETATTR, </home/bys/桌面/41/tests/mount/a.txt>, <0xb576cc80>, <0x00000000>
+1
+RELEASE, </home/bys/桌面/41/tests/mount/a.txt>, <0xb576cd30>
+OPEN, </home/bys/桌面/41/tests/mount/a.txt>, <0xb606fd30>
+READ, </home/bys/桌面/41/tests/mount/a.txt>, <0xa00024e0>, <4096>, <0>, <0xb4e69d30>
+RELEASE, </home/bys/桌面/41/tests/mount/a.txt>, <0xb6972d30>
+GETATTR, </home/bys/桌面/41/tests/mount/a>, <0xb576cc80>, <0x00000000>
+0
+MKDIR, </home/bys/桌面/41/tests/mount/a>, <509>
+GETATTR, </home/bys/桌面/41/tests/mount/a>, <0xa7ffec80>, <0x00000000>
+1
+GETATTR, </home/bys/桌面/41/tests/mount/b.txt>, <0xb606fc80>, <0x00000000>
+0
+CREATE, </home/bys/桌面/41/tests/mount/b.txt>, <33204>, <0xb4e69d30>
+GETATTR, </home/bys/桌面/41/tests/mount/b.txt>, <0xb4e69c40>, <0xb4e69d30>
+1
+GETATTR, </home/bys/桌面/41/tests/mount/b.txt>, <0xb6972bb0>, <0x00000000>
+1
+RELEASE, </home/bys/桌面/41/tests/mount/b.txt>, <0xb576cd30>
+OPEN, </home/bys/桌面/41/tests/mount/b.txt>, <0xa7ffed30>
+GETATTR, </home/bys/桌面/41/tests/mount/b.txt>, <0xb606fbb0>, <0x00000000>
+1
+RELEASE, </home/bys/桌面/41/tests/mount/b.txt>, <0xb4e69d30>
+GETATTR, </home/bys/桌面/41/tests/mount/a/a.txt>, <0xb6972c80>, <0x00000000>
+0
+GETATTR, </home/bys/桌面/41/tests/mount/a.txt>, <0xb576cc50>, <0x00000000>
+1
+GETATTR, </home/bys/桌面/41/tests/mount/a/a.txt>, <0xa7ffec80>, <0x00000000>
+0
+LINK, </home/bys/桌面/41/tests/mount/a.txt>, </home/bys/桌面/41/tests/mount/a/a.txt>
+GETATTR, </home/bys/桌面/41/tests/mount/a/a.txt>, <0xb606fc80>, <0x00000000>
+1
+GETATTR, </home/bys/桌面/41/tests/mount/a>, <0xb4e69c50>, <0x00000000>
+1
+GETATTR, </home/bys/桌面/41/tests/mount/a/b.txt>, <0xb6972c80>, <0x00000000>
+0
+RENAME, </home/bys/桌面/41/tests/mount/b.txt>, </home/bys/桌面/41/tests/mount/a/b.txt>, <1>
+----1
++++++++++++++++++++++++++++++++++++/ /a
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xa7ffec50>, <0x00000000>
+1
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb606fc70>
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xa8002f60>, <0xb6d9e310>, <0>, <0xb4e69c00>, 
+[name].
+[name]a.txt
+[name]a
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc80>
+GETATTR, </home/bys/桌面/41/tests/mount/a>, <0xa7ffec80>, <0x00000000>
+1
+OPENDIR, </home/bys/桌面/41/tests/mount/a>, <0xb606fc70>
+READDIR, </home/bys/桌面/41/tests/mount/a>, <0xa8002f60>, <0xb6d9e310>, <0>, <0xb4e69c00>, 
+[name]..
+[name].
+[name]a.txt
+[name]b.txt
+RELEASEDIR, </home/bys/桌面/41/tests/mount/a>, <0xb576cc80>
+GETATTR, </home/bys/桌面/41/tests/mount/a.txt>, <0xa7ffec80>, <0x00000000>
+1
+UNLINK, </home/bys/桌面/41/tests/mount/a.txt>
+GETATTR, </home/bys/桌面/41/tests/mount/>, <0xb6972c50>, <0x00000000>
+1
+OPENDIR, </home/bys/桌面/41/tests/mount/>, <0xb576cc70>
+READDIR, </home/bys/桌面/41/tests/mount/>, <0xac001980>, <0xb6d9e310>, <0>, <0xa7ffec00>, 
+[name].
+[name]a
+RELEASEDIR, </home/bys/桌面/41/tests/mount/>, <0xb4e69c80>
+GETATTR, </home/bys/桌面/41/tests/mount/a>, <0xb6972c80>, <0x00000000>
+1
+OPENDIR, </home/bys/桌面/41/tests/mount/a>, <0xb576cc70>
+READDIR, </home/bys/桌面/41/tests/mount/a>, <0xac001a00>, <0xb6d9e310>, <0>, <0xa7ffec00>, 
+[name]..
+[name].
+[name]a.txt
+[name]b.txt
+RELEASEDIR, </home/bys/桌面/41/tests/mount/a>, <0xb4e69c80>
+GETATTR, </home/bys/桌面/41/tests/mount/a/b.txt>, <0xb6972c80>, <0x00000000>
+1
+CHMOD, </home/bys/桌面/41/tests/mount/a/b.txt>, <33124>, <0x00000000>
+GETATTR, </home/bys/桌面/41/tests/mount/a/b.txt>, <0xb576cbb0>, <0x00000000>
+1
+GETATTR, </home/bys/桌面/41/tests/mount/a>, <0xa7ffec80>, <0x00000000>
+1
+OPEN, </home/bys/桌面/41/tests/mount/a/b.txt>, <0xb606fd30>
+OPENDIR, </home/bys/桌面/41/tests/mount/a>, <0xb6972c70>
+READDIR, </home/bys/桌面/41/tests/mount/a>, <0xb0002970>, <0xb6d9e310>, <0>, <0xb576cc00>, 
+[name]..
+[name].
+[name]a.txt
+[name]b.txt
+GETATTR, </home/bys/桌面/41/tests/mount/a/a.txt>, <0xa7ffec80>, <0x00000000>
+1
+GETATTR, </home/bys/桌面/41/tests/mount/a/b.txt>, <0xb606fc80>, <0x00000000>
+1
+RELEASEDIR, </home/bys/桌面/41/tests/mount/a>, <0xb6972c80>
+OPEN, </home/bys/桌面/41/tests/mount/a/a.txt>, <0xb576cd30>
+WRITE, </home/bys/桌面/41/tests/mount/a/a.txt>, <0xb4466060>, <8000>, <0>, <0xa7ffed90>
+RELEASE, </home/bys/桌面/41/tests/mount/a/a.txt>, <0xb4e69d30>
+GETATTR, </home/bys/桌面/41/tests/mount/a>, <0xb4e69c80>, <0x00000000>
+1
+OPEN, </home/bys/桌面/41/tests/mount/a/a.txt>, <0xb6972d30>
+GETATTR, </home/bys/桌面/41/tests/mount/a/a.txt>, <0xb576cc50>, <0xb576cd30>
+1
+READ, </home/bys/桌面/41/tests/mount/a/a.txt>, <0x9c0021a0>, <8192>, <0>, <0xa7ffed30>
+RELEASE, </home/bys/桌面/41/tests/mount/a/a.txt>, <0xb606fd30>

@@ -4,6 +4,7 @@ mkdir mount
 ./lfs mount
 mkdir test
 touch a.txt
+sleep 0.1
 ./test_lfs
 rm -r test
 rm a.txt
